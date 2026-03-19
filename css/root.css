@@ -1,0 +1,188 @@
+@import url('https://fonts.cdnfonts.com/css/lemonade-stand');
+@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Ranchers&display=swap');
+
+:root {
+  /* Font texts */ 
+  --font-text-primary: 'Poppins', sans-serif;
+  --font-text-secondary: 'Open Sans', sans-serif;
+  --font-text-accent: 'Playfair Display', serif;
+  --font-text-title: 'Bebas Neue', serif;  
+  --font-lemonade: 'Lemonade Stand', cursive;
+  --font-Ranchers: 'Ranchers';
+  --font-Annie: 'Annie Use Your Telescope', cursive;
+ 
+  /* Font colors */
+  --color-primary: #4FB0E3;    /* Your main blue */
+  --color-black: #2D3539;      /* Pure black */
+  --color-menu: #e8e6e6;      /* For the hoover effect in menu section */
+  --color-secondary: #f7f7f7; 
+  --color-white: #f7f7f7;  
+  --color-kipurim: red; 
+  --color-sukkot: #63b136; 
+  --color-purple: #6F6B85;  
+  --color-kermes: #FF008B; 
+  --color-yedid: #F1841B;
+  --color-yedid2: #aab0b0; 
+  /* Font weights */ 
+  --lighten:100;
+  --light: 300;
+  --regular: 400;  
+  --medium: 500;
+  --semi-bold: 600; 
+  --bold: 900;
+}
+
+/*
+1-rem for most text elements (root-relative sizing)
+2-em for component-scoped typography (buttons, cards)
+3-Viewport units (vw/vh) for hero/display text (sparingly)
+4-px only for borders/shadow (never for typography)
+*/
+
+/* ====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||
+            Styles for text that are displayed in section: "Display"
+====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====*****/
+
+/* For bg overlay black transparent*/
+/* ====||||====||||====|||| Styles for text in bg dark ====||||====||||====|||| */
+
+
+/* Example usage: */
+.lemonade-heading {
+    font-family: var(--font-lemonade);
+    font-weight: var(--bold);
+}
+
+.special-title {
+    font-family: var(--font-lemonade);
+    color: var(--color-primary);
+}
+
+/* Or apply to existing elements */
+h1, h2, h3 {
+    font-family: var(--font-lemonade);
+}
+
+/* Or create a utility class */
+.lemonade-text {
+    font-family: var(--font-lemonade);
+}
+
+
+
+.titleDark {
+  text-align: center;
+  color: var(--color-white);
+  font-family: var(--font-Annie);
+  font-size: 5vw;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+
+}
+.subtitleDark{
+  text-align: center;
+  color: var(--color-white);
+  font-family: var(--font-Annie);
+  font-weight: var(--light);
+  font-size: 5vw;
+    letter-spacing: 0.5rem;
+
+}  
+.contentDark{
+  font-family: var(--font-text-primary); /* Usando la variable que cree el 3april25 */
+  font-weight: var(--light);
+  font-size: 6vw;
+  text-align: center;
+  color: var(--color-white);
+  letter-spacing: 0.3rem;
+  line-height: 97%;
+  padding: 1rem 0rem;
+  letter-spacing: -0.2vw;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Mejor contraste */
+
+}
+
+.spanish {
+  font-family: var(--font-text-secondary);
+  font-weight: var(--medium);
+  font-size: 4vw;
+  color: var(--color-primary);
+  line-height: 87%;
+  letter-spacing: 0.2vw;
+  
+}
+
+.cabanas {
+  font-family: var(--font-text-secondary); /* Usando la variable que cree el 3april25 */
+  color: var(--color-white);
+  font-weight: var(--bold);
+  font-size: 6vw;
+  text-align: center;
+  letter-spacing: 0.3rem;
+  line-height: 105%;
+  padding: 1rem 0rem;
+  letter-spacing: -0.2vw;
+  text-shadow: 2px 2px 5px rgba(28, 29, 30, 0.1); /* Mejor contraste */
+
+}
+
+.cabanasHymn {
+  font-family: var(--font-text-secondary); /* Usando la variable que cree el 3april25 */
+  color: var(--color-white);
+  font-weight: var(--bold);
+  font-size: 6vw;
+  text-align: center;
+  letter-spacing: 0.3rem;
+  line-height: 100%;
+  padding: 1rem 0rem;
+  letter-spacing: -0.2vw;
+  text-shadow: 2px 2px 5px rgba(28, 29, 30, 0.1); /* Mejor contraste */
+
+}
+
+/* ====||||====||||====||||  E N D  Styles for text in bg dark ====||||====||||====|||| */
+
+
+
+/* ====||||====||||====|||| Styles for text in bg light ====||||====||||====|||| */
+
+.titleLight {
+  text-align: center;
+  color: var(--color-black);
+  font-family: var(--font-text-title);
+  font-size: 4vw;
+  text-transform: uppercase;
+
+}
+.subtitleLight{
+  text-align: center;
+  color: var(--color-black);
+  font-family: var(--font-text-secondary);
+  font-weight: var(--light);
+  font-size: 4vw;
+}
+.contentLight{
+  font-family: var(--font-text-primary); /* Usando la variable que cree el 3april25 */
+  font-weight: var(--light);
+  font-size: 6vw;
+  text-align: center;
+  color: var(--color-black);
+  letter-spacing: 0.3rem;
+  line-height: 97%;
+  padding: 1rem 0rem;
+  letter-spacing: -0.2vw;
+
+}
+
+/* ====||||====||||====||||  E N D  Styles for text in bg light ====||||====||||====|||| */
+
+
+/*For bg overlay black transparent */
+
+
+
+/* ====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||
+             E N D  Styles for text that are displayed in section: "Display"
+====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====*****/
+

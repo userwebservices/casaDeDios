@@ -1,0 +1,47 @@
+#homeButton {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(0, 123, 255, 0.8);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 9999 !important;
+    
+    /* Centrar contenido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Ícono usando ::before */
+#homeButton::before {
+    content: "⌂";  /* Unicode para casa */
+    display: block;
+    line-height: 1;
+}
+
+/* Ocultar el <i> si existe */
+#homeButton i {
+    display: none;
+}
+
+#homeButton.visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+#homeButton:hover {
+    transform: scale(1.1);
+    background: rgba(0, 123, 255, 1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}

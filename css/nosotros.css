@@ -1,0 +1,143 @@
+/* nosotros.css */
+
+/* Hero Section */
+.nosotros-hero {
+    position: relative;
+    height: 50vh;
+    background-image: url('../assets/img/nosotros/hero-doctrina.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 56px;
+}
+
+.nosotros-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.nosotros-hero .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.nosotros-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.nosotros-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Sección Doctrina */
+.doctrina-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 60vh;
+}
+
+/* Acordeón personalizado */
+.accordion-item {
+    margin-bottom: 1rem;
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+
+.accordion-button {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1.2rem 1.5rem;
+    background-color: white;
+    color: #212529;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #007bff;
+    color: white;
+}
+
+.accordion-button:not(.collapsed) i {
+    color: white !important;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.accordion-body {
+    padding: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    background-color: #f8f9fa;
+}
+
+.accordion-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nosotros-hero {
+        height: 40vh;
+    }
+    
+    .nosotros-title {
+        font-size: 2rem;
+    }
+    
+    .nosotros-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .accordion-button {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+    
+    .accordion-button i {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+/*Styles for personalized icons*/
+/* SVG dentro del acordeón - color por defecto azul */
+.accordion-button svg {
+    fill: #007bff; /* Azul primario */
+    transition: fill 0.3s ease;
+}
+
+/* SVG cuando el acordeón está abierto - color blanco */
+.accordion-button:not(.collapsed) svg {
+    fill: white !important;
+}
+
+/* Si tu SVG tiene paths internos con color */
+.accordion-button svg path,
+.accordion-button svg polygon,
+.accordion-button svg circle {
+    fill: inherit; /* Hereda el color del SVG padre */
+}
+
+.accordion-button:not(.collapsed) svg path,
+.accordion-button:not(.collapsed) svg polygon,
+.accordion-button:not(.collapsed) svg circle {
+    fill: white !important;
+}

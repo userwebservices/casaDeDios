@@ -1,0 +1,59 @@
+/*
+
+
+Capas y z-index - sección "Display"
+
+
+------IMG bg 
+            Archivo: display.css
+       .display {
+grid-area: display;
+background-color: var(--color-white);
+position: relative; --- Tue 29 April 25 ---
+background-image: url('../../assets/bg/back-shavuot-01.jpeg'); --- Cambia la ruta a tu imagen ---
+background-size: cover; -- Asegura que la imagen cubra el área de la sección ---
+background-position: center; -- Centra la imagen dentro del área --
+background-attachment: fixed; --Fija la imagen al fondo si se hace scroll ---
+background-repeat: no-repeat; --- Evita que la imagen se repita ---
+z-index: 1;
+} 
+    }
+
+
+------Capa transpàrente
+            Archivo: display.css
+
+       .display::before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%;  
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); --- Black transparent overlay ---
+  z-index: 2;
+  pointer-events: none; -- Let clicks pass through ---
+}
+
+------Texto inicio
+            Archivo: display.css
+
+       #titleAimCover {
+        position: absolute; -- o absolute (depende de tu layout) | fixed fija en relación a la ventana windopw ---
+        bottom: 1rem;
+        -- Lo pega abajo --
+        left: 4rem;
+        -- Lo pega a la izquierda ---
+        max-width: 50%;
+        --- Opcional: para que no ocupe todo el ancho ----
+        z-index: 3;
+        --- Opcional: si hay otros elementos superpuestos ---
+    }
+
+
+
+
+
+
+
+*/

@@ -1,0 +1,134 @@
+
+header {
+    grid-area: header;
+    position: relative;
+    top: 0;
+    background-color: var(--color-black); 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /*Aligning items to the left (main-axis alignment) in flex directions: row*/
+    align-items: center; /*Aligning items vertically (cross-axis alignment) for flex directions row*/  
+    height: 9vh; /* Altura fija basada en viewport */
+    max-height: 60px; /* Máximo para pantallas grandes */
+    z-index: 1000; /* High but below search */
+    padding: 0 1rem;
+
+}
+
+header h1 {
+    color: var(--color-secondary);
+    font-family: var(--font-text-acent);
+    font-weight: 700;
+    font-style: normal;
+    text-align: left;
+    padding-left: 2%;
+    /*Que hace esto? ocupa todo el espacio disponible */
+    flex-grow: 1;
+    font-size: 1.2rem;
+    font-optical-sizing: auto;
+    margin-bottom: 0px;
+}
+
+ 
+
+
+header ul {
+    flex-grow: 1;
+    padding: 0;
+    list-style: none;
+    /*hacemos la ul flex y sus items los centramos*/
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+
+/*----////----////----//// S T Y L E S   F O R  B O X S - E A R C H  ----////----////----////*/
+/* Header search styles */
+header .search-container {
+    position: relative;
+    margin-right: 0rem;
+    z-index: 1001; /* Higher than overlays */
+}
+
+
+header .input-group {
+    width: 100%;
+}
+
+header #searchInput {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.7);
+    color: white;
+}
+
+header #searchInput::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+header #searchInput:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+
+header #clearSearch {
+    color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+header #searchResults {
+    position: absolute;
+    right: 0;
+    left: auto;
+    width: 300px;
+    max-height: 60vh;
+    overflow-y: auto;
+    margin-top: 0.5rem;
+    z-index: 1002;
+}
+/*----////----////----//// S T Y L E S   F O R  B O X S - E A R C H  ----////----////----////*/
+
+
+@media (max-width: 768px) {
+    header h1 {
+        word-break: break-word !important;
+        color: var(--color-secondary);
+        font-family: var(--font-text-acent);
+        font-weight: 300;
+        font-style: normal;
+        letter-spacing: 0.1rem;
+        text-align: left;
+        padding-left: 1%;
+        /*Que hace esto? ocupa todo el espacio disponible */
+        flex-grow: 1;
+        font-size: 1rem !important;
+        font-optical-sizing: auto;
+        margin-bottom: 0px;
+    }
+    
+    .search-container {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+
+
+
+
+/*Estilos for the menu in cantos.html*/
+/* Navbar estático (no fixed) */
+    .navbar-static {
+        position: relative;
+        width: 100%;
+    }
+
+    /* El menú de categorías sticky debe tener z-index alto */
+    .menu.sticky-top {
+        z-index: 1020;
+        top: 0;
+    }
+/* END Estilos for the menu in cantos.html*/

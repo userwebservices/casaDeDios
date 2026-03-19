@@ -1,0 +1,68 @@
+/* calendario.css */
+
+/* Espaciado por navbar fixed */
+body {
+    padding-top: 80px;
+}
+
+/* Sección calendario */
+.calendario-section {
+    min-height: calc(100vh - 180px);
+    padding: 60px 0;
+}
+
+.calendario-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #212529;
+    margin-bottom: 1rem;
+}
+
+.calendario-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #6c757d;
+    margin-bottom: 3rem;
+}
+
+.calendario-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    padding: 20px;
+}
+
+.calendario-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+/* Botón descarga */
+.btn-primary {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .calendario-title {
+        font-size: 2rem;
+    }
+    
+    .calendario-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .calendario-section {
+        padding: 40px 0;
+    }
+    
+    .calendario-container {
+        padding: 10px;
+    }
+}

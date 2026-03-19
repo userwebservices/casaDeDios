@@ -1,0 +1,516 @@
+
+/* ====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||
+                              DISPLAY BASE AND IMAGE IN BG 
+====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||*/
+
+.display {
+grid-area: display;
+position: relative; 
+background-color: var(--color-white);
+position: relative; /* Tue 29 April 25 */
+/*background-image: url('../../assets/bg/jagim/shavuot/bg-shavuot-01.webp'); /* bg default sección principal */
+background-size: cover; /* Asegura que la imagen cubra el área de la sección */
+background-position: center; /* Centra la imagen dentro del área */
+background-attachment: fixed; /* Fija la imagen al fondo si se hace scroll */
+background-repeat: no-repeat; /* Evita que la imagen se repita */
+z-index: 1;
+min-height: 0; /* Asegura que la grid no se expanda */
+overflow-y: auto; /* Scroll interno para contenido largo */
+}
+
+ 
+
+/* El contenedor de contenido debe tener mayor z-index */ 
+#contentContainer {
+    position: relative;
+    z-index: 30;  /* Debe ser mayor que el overlay */
+    /* ... otras propiedades ... */
+    max-height: 100%; /* Limita la altura al contenedor padre */
+    overflow-y: auto; /* Scroll interno si el contenido es muy largo */
+    padding: 1rem; /* Espaciado interno opcional */
+    
+}
+
+
+
+/* ====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||
+                              STATIC AND DINAMIC  BLACK TRANSPARENT OVERLAY
+====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||*/
+
+
+/*ºpa transparente*/
+/* Capa transparente - MODIFICADO */
+
+
+  
+/* Eliminar el overlay con ::before y reemplazar con clase */
+
+
+/* Overlay estático inicial */
+.display-overlay-static {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.0); /* A F E C T A  E L  O V E R L A Y  P R I N C I P A L */
+    z-index: 10;
+    transition: opacity 0.3s ease;
+}
+
+
+
+/* Overlay dinámico */
+.display-overlay-dynamic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* A F E C T A  E L  O V E R L A Y  D I N A M I C O */
+    z-index: 20; /* Mayor que el estático para que esté encima */
+}
+
+
+/* Cuando queremos ocultar el overlay estático */
+.display-overlay-static.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+/*  E N D  Dinamic black transparent overlay*/
+
+/* ====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||
+                              AIM TITLE COVER
+====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||*/
+
+/*Clase para texto de titleAimCover*/
+
+    #titleAimCover {
+        position: absolute;/* o absolute (depende de tu layout) | fixed fija en relación a la ventana windopw*/
+        bottom: 3rem;
+        /* Lo pega abajo */
+        left: 4rem;
+        /* Lo pega a la izquierda */
+        max-width: 77%;
+        /* Opcional: para que no ocupe todo el ancho */
+         z-index: 40; /* Por encima de todo */
+    }
+
+    
+
+
+    .overlaidTitle {
+        display: flex;
+        flex-direction: column;/* Ordena los hijos en columna (h1, h2, h3) */
+        /*gap: 2rem;/* Espacio entre elementos */
+        align-items: flex-start;
+    }
+
+    
+
+    .overlaidTitle > i.fas.fa-bullhorn { /* ✅ CORRECT, is working in Mon 22 sept 25 */
+    font-size: 7vw;
+    padding-bottom: 1rem; 
+    color: var(--color-kipurim);
+}
+
+    /* Estilos opcionales para mejor legibilidad */
+    .overlaidTitle h1,
+    .overlaidTitle h2
+        {
+        margin: 0;/* Elimina márgenes por defecto */
+        color: var(--color-white);/* Si el fondo es oscuro */
+        
+        }
+
+         /* Styles for div class="overlaidInside", containt: the icon and the <h3> and <h4> text*/
+
+     .overlaidInside h1 {
+        display: flex;
+        font-weight: var(--bold);
+        flex-direction: row;
+        justify-content: flex-start; /*Aligning items to the left (main-axis alignment) in flex directions: row*/
+        align-items: center; /*Aligning items vertically (cross-axis alignment) for flex directions row*/
+        /*opacity: 0.7;*/
+        /*text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Mejor contraste */
+        line-height: 90%;
+        padding-bottom: 0.1rem;   
+    }
+    .overlaidTitle h1 { 
+        font-family: var(--font-primary); 
+        font-size: 3vw;
+        font-weight: var(--light);
+        letter-spacing: 0.2rem;
+        line-height: 90%;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
+        padding-bottom: 0rem;
+        color: var(--color-yedid2);/* Si el fondo es oscuro */
+        width: 42rem;
+    }  
+
+    .overlaidTitle h2 {
+        font-family: var(--font-primary); /* Usando la variable que cree el 3april25 */
+        font-weight: var(--light);
+        font-size: 4vw;
+        width: 40rem;
+        letter-spacing: 0.2rem;
+        line-height: 99%;
+        padding-bottom: 1rem;
+        color: var(--color-white);/* Si el fondo es oscuro */
+        text-shadow: 2px 2px 5px rgba(25, 24, 24, 0.7); 
+
+    }
+
+     .overlaidTitle h3 {
+        font-family: var(--font-Annie) ;
+        font-weight: var(--medium);
+        color: var(--color-kermes);
+        font-size: 3vw; 
+        letter-spacing: 0.2rem;
+        margin-bottom: 0rem; 
+        text-shadow: 2px 2px 5px rgba(25, 24, 24, 0.3); 
+        width: 45%;
+    }
+
+    .overlaidTitle h4 {
+        font-family: var(--font-lemonade) ;
+        font-size: 2vw;
+        color: var(--color-yedid2);
+        font-weight: var(--light);
+        letter-spacing: 0.1rem;
+        line-height: 90%;
+        padding-bottom: 0.5rem;
+        text-shadow: 2px 2px 5px rgba(25, 24, 24, 0.1); 
+        font-style: italic;
+
+    }
+
+    .overlaidTitle h5 {
+        font-family: var(--font-text-primary) ;
+        font-size: 1vw;
+        color: var(--color-white);
+        font-weight: var(--medium);
+        letter-spacing: 0.2rem;
+        line-height: 90%;
+        padding: 2rem;
+    }
+
+    .overlaidInside h2 {
+        color: var(--color-black);
+        font-family:var(--font-lemonade);
+        /*text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Mejor contraste */
+        font-size: 4rem;
+    }
+
+    .overlaidInside hr {
+        padding-bottom: 1rem;
+    }
+
+    .overlaidInside > i.fas fa-bullhorn	 {/*Calendar icon*/
+        font-size: 1vw;
+        padding-bottom: 2rem; 
+        color: var(--color-white);
+    }
+
+    .overlaidInsideVerse { 
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start; /*Aligning items to the left (main-axis alignment) in flex directions: row*/
+        align-items: center; /*Aligning items vertically (cross-axis alignment) for flex directions row*/       
+        /*background-color: var(--color-purple); */
+        border-radius: 0.2rem; 
+      
+    }
+
+   
+ 
+    .overlaidInsideVerse img {/*Bible icon*/
+        font-size: 5vw;
+        width: 3vw;
+        color: var(--color-white);
+        margin-bottom: 0rem;
+        padding-bottom: 0rem;
+        padding-left: 0.2rem; 
+    } 
+
+    /*Esta regla afecta a la refrencia bíblica del texto de entrada */
+    .overlaidInsideVerse h5 { 
+        
+      font-family: var(--font-text-secondary) ;
+        font-size: 1rem;
+        color: var(--color-white);
+        font-weight: var(--medium);
+        letter-spacing: 0.1rem;
+        line-height: 90%;
+        padding: 0rem;
+        text-shadow: 2px 2px 5px rgba(25, 24, 24, 0.1); 
+    }
+
+   
+
+    .sukkot {
+        font-size: 5rem;
+        line-height: 90%;
+        font-family: var(--font-text-primary);
+    }
+
+     .sukkotHymn {
+        font-size: 6rem;
+        line-height: 90%;
+        font-family: var(--font-text-primary);
+    }
+    
+    
+
+    /*.  código logo Yedid svg 11dic25*/
+            /* Estilos para el contenedor del logo */
+        .logo-container {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+
+                .logo-svg {
+            width: 500px; /* Reducido de 500px */
+            height: auto; /* Mantiene proporciones */
+            max-width: 80%; /* Limita el ancho máximo */
+            display: block;
+            margin: 0 auto 0rem auto; /* Centra y agrega margen inferior */
+        }
+
+        /* Si quieres animación o efectos */
+        .logo-svg:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        /* Para diferentes tamaños responsive */
+        @media (max-width: 768px) {
+            .logo-svg {
+                width: 250px;
+                max-width: 85%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-svg {
+                width: 200px;
+                max-width: 90%;
+            }
+                }
+
+
+                #titleAimCover {
+                position: fixed;/* o absolute (depende de tu layout) | fixed fija en relación a la ventana windopw*/
+                bottom: 3rem;
+                /* Lo pega abajo */
+                left: 4rem;
+                /* Lo pega a la izquierda */
+                max-width: 77%;
+                /* Opcional: para que no ocupe todo el ancho */
+                z-index: 40; /* Por encima de todo */
+            }
+
+            
+
+
+            .overlaidTitle {
+                display: flex;
+                flex-direction: column;/* Ordena los hijos en columna (h1, h2, h3) */
+                /*gap: 2rem;/* Espacio entre elementos */
+                align-items: flex-start;
+            }
+
+            /*.  END código logo Yedid svg 11dic25*/
+
+            
+   
+
+    /* E N D Styles for icon*/
+
+
+    /*  E N D - Clase para texto de titleAimCover*/
+/* ====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||
+                            E N D   AIM TITLE COVER
+====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||*/
+
+
+    
+
+
+
+/* ====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||
+                               P A R A L L A X  E F F E C  O N  H E R O  I M A G E  | add 21may25
+====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||*/
+/* ===== Hero Parallax Effect ===== */
+/* Add this at the BOTTOM of your display.css file */
+
+
+
+/* ===== GUARANTEED WORKING ANIMATION ===== */
+.display.welcome-view {
+    /* Basic styles */
+    background-image: url('../../assets/bg/jagim/shavuot/bg-shavuot-01.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    
+    /* Animation - simple horizontal pan */
+    /*animation: panImage 70s linear infinite;*/
+    
+    /* 21 may 25, this option, only create zoom in forward, but has and end
+    animation: zoomPan 10s linear forwards;
+    */
+
+    animation: smoothZoomPan 30s infinite ease-in-out; /* Very slow, endless zoom */
+
+
+     /* Optimizations */
+     will-change: background-position; /* Improves performance */
+     backface-visibility: hidden; /* Prevents flickering */
+     transform: translateZ(0); /* Hardware acceleration */
+}
+
+
+/*
+@keyframes panImage {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+    */
+
+    @keyframes smoothZoomPan {
+        0% {
+          background-size: 100% auto; /* Start normal */
+          background-position: center;
+        }
+        50% {
+          background-size: 120% auto; /* Fully zoomed in */
+          background-position: 1% 70%; /* Panned position */
+        }
+        100% {
+          background-size: 100% auto; /* Back to normal */
+          background-position: center;
+        }
+      }
+      /*
+      @keyframes infiniteZoom {
+        0% {
+          background-size: 100% auto;
+          background-position: center;
+        }
+        100% {
+          background-size: 200% auto; /* Extreme zoom */
+       /*   background-position: 60% 50%;
+        }
+      }
+        */
+
+/* ====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||
+                               E N D P A R A L L A X  E F F E C  O N  H E R O  I M A G E | add 21may25
+====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||*/
+ 
+
+
+/* For mobile dsign add 16march26*/
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden !important;
+    }
+
+    .display {
+        padding: 20px 15px !important; 
+        min-height: 100vh !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Imagen de fondo ajustada para móvil */
+    .display.welcome-view {
+        background-size: cover !important;
+        background-position: center center !important;
+        background-attachment: scroll !important;
+        min-height: 100vh !important;
+    }
+    
+    /* Overlay para mejorar legibilidad del texto */
+    .display-overlay-static {
+        background: rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    /* SOBRESCRIBIR posicionamiento de titleAimCover para mobile */
+    #titleAimCover {
+        position: relative !important;  /* Cambiar de absolute a relative */
+        bottom: auto !important;        /* Quitar bottom */
+        left: auto !important;          /* Quitar left */
+        max-width: 100% !important;     /* Ancho completo */
+        padding: 20px !important;
+        box-sizing: border-box !important;
+        
+        /* Centrado vertical */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-height: calc(100vh - 180px) !important;
+    }
+    
+    /* Ajustar overlaidTitle para mobile */
+    .overlaidTitle {
+        width: 100% !important;
+        max-width: 100% !important;
+        align-items: center !important;  /* Centrar en lugar de flex-start */
+        text-align: center !important;   /* Texto centrado */
+    }
+    
+    /* Títulos adaptados */
+    .overlaidTitle h1 {
+        font-size: 1.8rem !important;
+        word-wrap: break-word !important;
+        max-width: 100% !important;
+        width: 100% !important;  /* Ancho completo, no 42rem */
+        overflow-wrap: break-word !important;
+    }
+    
+    .overlaidTitle h2 {
+        font-size: 1.5rem !important;
+        width: 100% !important;  /* Ancho completo, no 40rem */
+    }
+    
+    /* Letra del canto */
+    .titleDark {
+        font-size: 2.2rem !important;
+        font-weight: 700 !important;
+    }
+    
+    .contentDark {
+        font-size: 1.5rem !important;
+        font-weight: 700 !important;
+        line-height: 1.1 !important;
+        letter-spacing: 0.1rem;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7) !important;
+    }
+    
+    .subtitleDark {
+        font-size: 1.5rem !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Asegurar que titleAimCover no interfiera cuando está oculto */
+    #titleAimCover[style*="display: none"] {
+        position: fixed !important;
+        left: -9999px !important;
+        visibility: hidden !important;
+    }
+}

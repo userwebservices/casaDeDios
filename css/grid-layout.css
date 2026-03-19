@@ -1,0 +1,18 @@
+
+body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto auto 1fr auto; /* Usa auto para las filas fijas */
+    grid-template-areas: 
+        "header"
+        "menu"
+        "display" 
+        "footer";
+    overflow-y: auto; /* Permite scroll general si es necesario */
+}
+
+.display {
+    grid-area: display;
+    min-height: 0; /* Importante para contener el contenido extenso */
+    overflow-y: auto; /* Scroll interno para el contenido largo */
+}
