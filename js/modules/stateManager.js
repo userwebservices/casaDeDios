@@ -4,7 +4,7 @@ export class __AppState__ {
         this.currentSong = null;
         this.songsCache = new Map();
         this.jsonData = null;
-        this.API_BASE = '/menu2026/php/api.php';
+        this.API_BASE = 'php/api.php';
     }
 
     async loadJsonData() {
