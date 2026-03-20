@@ -429,12 +429,21 @@ overflow-y: auto; /* Scroll interno para contenido largo */
 @media (max-width: 768px) {
     body {
         overflow-x: hidden !important;
+        overflow-y: auto !important; /* ← Asegurar scroll vertical */
+        -webkit-overflow-scrolling: touch; /* ← Scroll suave en iOS */
     }
 
     .display {
         padding: 20px 15px !important; 
         min-height: 100vh !important;
         overflow-x: hidden !important;
+        overflow-y: visible !important; /* ← Permitir scroll natural */
+        -webkit-overflow-scrolling: touch; /* ← Scroll suave */
+    }
+    
+    #contentContainer {
+        overflow: visible !important;
+        max-height: none !important;
     }
     
     /* Imagen de fondo ajustada para móvil */
