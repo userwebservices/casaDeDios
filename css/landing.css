@@ -55,14 +55,61 @@ body {
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
+
+
+
+
+
+/* Cards */
+
 /* Cards */
 .card {
+    overflow: hidden;
     transition: transform 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-10px);
 }
+
+/* Wrapper de imagen con overlay */
+.card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.card:hover .card-img-wrapper::after {
+    opacity: 0;
+}
+
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+
+
+
+
+
 
 /* Congregaciones Hermanas */
 .congregacion-logo {
@@ -113,48 +160,34 @@ footer a:hover {
 
 
 
-/*Estilos sección Nuestras Congregaciones*/
-/* Oscurecer imágenes de cards */
-.card-img-top {
-    transition: filter 0.3s ease, transform 0.3s ease;
-    filter: brightness(0.7); /* Oscurece un 30% */
+
+
+
+
+
+/* FIX para menú en cantos.html móvil */
+@media (max-width: 768px) {
+    /* Forzar que el navbar collapse esté en la posición correcta */
+    #mainNavbar .navbar-collapse {
+        position: absolute;
+        top: 100%; /* ← Justo debajo del navbar */
+        left: 0;
+        right: 0;
+        background: #212529; /* Mismo color del navbar */
+        max-height: 80vh;
+        overflow-y: auto;
+        z-index: 9999;
+        padding: 0;
+    }
+    
+    #mainNavbar .navbar-collapse.show {
+        display: block;
+    }
+    
+    /* Asegurar que el menú sticky esté arriba */
+    .menu.sticky-top {
+        position: sticky;
+        top: 0;
+        z-index: 1030;
+    }
 }
-
-/* Al hacer hover, se aclaran */
-.card:hover .card-img-top {
-    filter: brightness(1);
-    transform: scale(1.05);
-}
-
-/* Opcional: Agregar overlay oscuro encima de la imagen */
-.card {
-    position: relative;
-    overflow: hidden;
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60%; /* Cubre solo la imagen, no el texto */
-    background: rgba(0, 0, 0, 0.3); /* Capa negra 30% opacidad */
-    z-index: 1;
-    transition: opacity 0.3s ease;
-}
-
-.card:hover::before {
-    opacity: 0; /* Se quita al hacer hover */
-}
-
-/* Asegurar que el texto esté por encima del overlay */
-.card-body {
-    position: relative;
-    z-index: 2;
-}
-
-
-
-
-
