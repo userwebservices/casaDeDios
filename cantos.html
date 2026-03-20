@@ -14,25 +14,8 @@
     <!-- H E A D E R -->
     <header>
 
-        <!--
-                <a class="navbar-brand ps-5" href=".">
-                    <img src="assets/img/logoCdD.svg" alt="Bootstrap" width="30" height="24">
-                </a>
-                <h1>Casa de Dios</h1>
-                 
-                <form class="search-container">
-                    <div class="input-group">
-                        <input type="text" id="searchInput" class="form-control" placeholder="Buscar cantos...">
-                        <button class="btn btn-outline-secondary" type="button" id="clearSearch">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div id="searchResults" class="dropdown-menu dropdown-menu-end w-100"></div>
-                </form>
-                -->
-
         <!-- NAVBAR SUPERIOR (NO FIXED) -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid" id="mainNavbar">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="index.html">
                     <!-- Tu logo SVG aquí -->
@@ -122,23 +105,21 @@
             </section>
             -->
 
-    <!-- MENU DE CATEGORÍAS (STICKY) 
-            <section class="menu sticky-top">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto" id="menuContainer">-->
-    <!-- El menú se carga dinámicamente aquí 
-                        </ul>
-                    </div>
-                </nav>
-            </section>
-            -->
-
-
     <!-- MENU DE CATEGORÍAS (STICKY) -->
+    <section class="menu sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto" id="menuContainer">
+                </ul>
+            </div>
+        </nav>
+    </section>
+
+
+    <!-- MENU DE CATEGORÍAS (STICKY) 
     <section class="menu sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
@@ -148,12 +129,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto" id="menuContainer">
-                        <!-- El menú se carga dinámicamente aquí -->
+                        El menú se carga dinámicamente aquí 
                     </ul>
                 </div>
             </div>
         </nav>
-    </section>
+    </section>-->
 
     <!-- D I S P L A Y -->
     <section class="display">
