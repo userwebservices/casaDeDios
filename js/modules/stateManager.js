@@ -8,7 +8,13 @@ export class __AppState__ {
     }
 
     async loadJsonData() {
+        //Loader 
+        const loader = document.getElementById('loader');
+
         try {
+            //Loader 
+            const loader = document.getElementById('loader');
+
             // Cargar categorías
             const categoriasRes = await fetch(`${this.API_BASE}?action=getCategorias`);
             const categorias = await categoriasRes.json();
@@ -32,7 +38,10 @@ export class __AppState__ {
         } catch (error) {
             console.error('Error cargando datos:', error);
             throw error;
+        }  finally {
+        loader.classList.add('d-none'); // ocultar loader SIEMPRE
         }
+        
     }
 
     findSong(category, songId) {
