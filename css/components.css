@@ -21,6 +21,7 @@
     justify-content: center;
     font-size: 28px;
     font-weight: bold;
+    pointer-events: none; /* ← AGREGAR: No bloquea touch cuando está oculto */
 }
 
 /* Ícono usando ::before */
@@ -38,6 +39,7 @@
 #homeButton.visible {
     opacity: 1 !important;
     visibility: visible !important;
+    pointer-events: auto; /* ← AGREGAR: Permite clicks cuando está visible */
 }
 
 #homeButton:hover {

@@ -142,27 +142,52 @@ export class __MenuHandlers__ {
 
 
 
-        setupMobileMenu() {
-
-        // Cerrar todos al cargar si es móvil
-        if (window.innerWidth <= 768) {
-            document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                menu.classList.remove('show');
-            });
-        }
-        
-        const navbarToggler = document.querySelector('.navbar-toggler');
-        const navbarCollapse = document.querySelector('.navbar-collapse');
-        
-        if (navbarToggler && navbarCollapse) {
-            navbarToggler.addEventListener('click', () => {
-                // Cerrar todos los dropdowns cuando se abre/cierra el menú hamburguesa
+                setupMobileMenu() {
+            // Cerrar todos los dropdowns al cargar si es móvil
+            if (window.innerWidth <= 768) {
                 document.querySelectorAll('.dropdown-menu').forEach(menu => {
                     menu.classList.remove('show');
                 });
-            });
+            }
+            
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('#navbarSupportedContent');
+            
+            if (navbarToggler && navbarCollapse) {
+                // Cerrar dropdowns cuando se abre/cierra el menú hamburguesa
+                navbarToggler.addEventListener('click', () => {
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                        menu.classList.remove('show');
+                    });
+                });
+                
+                // ✨ NUEVO: Cerrar menú al hacer click/touch fuera de él
+                document.addEventListener('click', (e) => {
+                    const isMenuOpen = navbarCollapse.classList.contains('show');
+                    const clickedInsideMenu = navbarCollapse.contains(e.target);
+                    const clickedToggler = navbarToggler.contains(e.target);
+                    
+                    // Si el menú está abierto Y el click fue fuera del menú Y no fue en el toggler
+                    if (isMenuOpen && !clickedInsideMenu && !clickedToggler) {
+                        // Cerrar menú principal
+                        navbarCollapse.classList.remove('show');
+                        
+                        // También cerrar todos los dropdowns abiertos
+                        document.querySelectorAll('.dropdown-menu.show').forEach(dropdown => {
+                            dropdown.classList.remove('show');
+                        });
+                    }
+                });
+            }
         }
-    }
+
+
+
+
+
+
+
+
 }
 
 

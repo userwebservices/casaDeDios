@@ -6,7 +6,7 @@
 .display {
 grid-area: display;
 position: relative; 
-background-color: var(--color-white);
+background-color: var(--color-black);
 position: relative; /* Tue 29 April 25 */
 /*background-image: url('../../assets/bg/jagim/shavuot/bg-shavuot-01.webp'); /* bg default sección principal */
 background-size: cover; /* Asegura que la imagen cubra el área de la sección */
@@ -16,6 +16,13 @@ background-repeat: no-repeat; /* Evita que la imagen se repita */
 z-index: 1;
 min-height: 0; /* Asegura que la grid no se expanda */
 overflow-y: auto; /* Scroll interno para contenido largo */
+}
+
+@media (max-width: 768px) {
+    .display {
+        height: auto !important; /* ← Permite crecer con el contenido */
+        min-height: 100vh !important;
+    }
 }
 
  
@@ -66,11 +73,21 @@ overflow-y: auto; /* Scroll interno para contenido largo */
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
+    height: 100%; /* ← Esto solo cubre el viewport, NO el contenido largo */
     background-color: rgba(0, 0, 0, 0.2); /* A F E C T A  E L  O V E R L A Y  D I N A M I C O */
-    z-index: 20; /* Mayor que el estático para que esté encima */
+    z-index: 1; /* TENIA 20 pero lo cambie a 1, Mayor que el estático para que esté encima */
+    pointer-events: none; /*agregada */
 }
 
+/* En mobile, asegurar que cubra TODO el scroll */
+@media (max-width: 768px) {
+    .display-overlay-dynamic {
+        min-height: 100vh;
+        height: auto; /* ← Se ajusta al contenido */
+        bottom: 0; /* ← Se extiende hasta abajo */
+    }
+}
 
 /* Cuando queremos ocultar el overlay estático */
 .display-overlay-static.hidden {
