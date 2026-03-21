@@ -173,7 +173,18 @@ footer a:hover {
 
 
 
+/* === PANTALLAS GRANDES (proyectores, 1920px+) === */
+@media (min-width: 1920px) {
+  .hero-title  { font-size: 6rem; }
+  .hero-subtitle { font-size: 2.8rem; }
+  .hero-section { height: 100vh; }
+}
 
+/* === 2K / 4K === */
+@media (min-width: 2560px) {
+  .hero-title  { font-size: 9rem; }
+  .hero-subtitle { font-size: 4rem; }
+}
 
 
 

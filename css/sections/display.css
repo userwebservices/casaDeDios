@@ -540,3 +540,44 @@ overflow-y: auto; /* Scroll interno para contenido largo */
         visibility: hidden !important;
     }
 }
+
+
+
+
+
+
+
+@media (min-width: 1920px) {
+  .overlaidTitle h1 {
+    font-size: 2.5vw;
+    width: 55rem; /* era 42rem fijo */
+  }
+  .overlaidTitle h2 {
+    font-size: 3.5vw;
+    width: 52rem; /* era 40rem fijo */
+  }
+  .overlaidTitle h3 { font-size: 2.5vw; width: 55%; }
+  .overlaidTitle h4 { font-size: 1.8vw; }
+  .overlaidTitle h5 { font-size: 1vw; }
+
+  #titleAimCover {
+    bottom: 5rem;
+    left: 6rem;
+    max-width: 70%;
+  }
+
+  .logo-svg { width: 700px; }
+}
+
+@media (min-width: 2560px) {
+  .overlaidTitle h1 { font-size: 3vw; width: 65rem; }
+  .overlaidTitle h2 { font-size: 4vw; width: 62rem; }
+  .overlaidTitle h3 { font-size: 3vw; }
+
+  #titleAimCover {
+    bottom: 7rem;
+    left: 8rem;
+  }
+
+  .logo-svg { width: 900px; }
+}

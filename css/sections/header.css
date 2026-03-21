@@ -132,3 +132,23 @@ header #searchResults {
         top: 0;
     }
 /* END Estilos for the menu in cantos.html*/
+
+
+
+
+
+
+
+
+@media (min-width: 1920px) {
+  header {
+    height: 8vh;
+    max-height: 90px; /* quitar el límite de 60px */
+  }
+  header h1 { font-size: 2rem; }
+}
+
+@media (min-width: 2560px) {
+  header { max-height: 110px; }
+  header h1 { font-size: 2.6rem; }
+}
