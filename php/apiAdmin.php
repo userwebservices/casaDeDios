@@ -69,6 +69,30 @@ function handleGet($db, $action)
             echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
             break;
 
+        case 'buscarCantos':
+
+            $q = $_GET['q'] ?? '';
+
+            if (strlen($q) < 3) {
+                echo json_encode([]);
+                exit;
+            }
+
+            $stmt = $db->prepare("
+                SELECT c.id, c.titulo, c.numero, cat.slug as categoria
+                FROM cantos c
+                    JOIN categorias cat ON c.categoria_id = cat.id
+                    WHERE MATCH(c.titulo) AGAINST(:q1 IN BOOLEAN MODE)
+                LIMIT 10
+                ");
+
+            $stmt->execute([
+                ':q1' => $q . '*' // 🔥 clave para predictivo
+            ]);
+
+            echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+            break;
+
         case 'getCantosPorCategoria':
             $slug = $_GET['slug'] ?? '';
             $stmt = $db->prepare("
@@ -95,11 +119,6 @@ function handleGet($db, $action)
             echo json_encode($categoria ?: ['error' => 'Categoría no encontrada']);
             break;
 
-        default:
-            echo json_encode(['error' => 'Acción no válida']);
-
-
-
         //Código agregado 6mar26, para añadir imagenes en la sección principal de bienvenida en la página
         case 'getAllHeroConfig':
             $stmt = $db->query("SELECT * FROM hero_config ORDER BY id DESC");
@@ -117,6 +136,9 @@ function handleGet($db, $action)
             $stmt = $db->query("SELECT * FROM hero_config WHERE activa = 1 LIMIT 1");
             echo json_encode($stmt->fetch(PDO::FETCH_ASSOC) ?: ['error' => 'No hay configuración activa']);
             break;
+        
+        default:
+            echo json_encode(['error' => 'Acción no válida']);
 
         // FIN Código agregado 6mar26, para añadir imagenes en la sección principal de bienvenida en la página
     }

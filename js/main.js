@@ -1,4 +1,5 @@
 import { MenuLoader } from './menuLoader.js';
+import { BuscadorCantos } from './modules/buscadorHandler.js';
 import { HeroLoader } from './heroLoader.js';  // ← LÍNEA NUEVA 1
 
 import { __AppState__ } from './modules/stateManager.js';
@@ -20,13 +21,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const songHandlers = new __SongHandlers__(displaySection, contentContainer, titleAimCover);
     const menuHandlers = new __MenuHandlers__(appState, songHandlers);
     const menuLoader = new MenuLoader();
-        const heroLoader = new HeroLoader();  // ← LÍNEA NUEVA 2
+    const heroLoader = new HeroLoader();  // ← LÍNEA NUEVA 2
 
-        // Cargar hero dinámicamente
+    // 🔎 Inicializar buscador (solo una vez)
+    const buscadorCantos = new BuscadorCantos(menuHandlers);
+
+    // Cargar hero dinámicamente
     await heroLoader.cargarHeroActivo();  // ← LÍNEA NUEVA 3
-
-
-    
     // Cargar menú dinámicamente
     await menuLoader.cargarMenu();
     
