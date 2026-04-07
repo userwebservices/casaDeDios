@@ -164,7 +164,7 @@ overflow-y: auto; /* Scroll interno para contenido largo */
         line-height: 90%;
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
         padding-bottom: 0rem;
-        color: var(--color-yedid2);/* Si el fondo es oscuro */
+        color: var(--color-white);/* Si el fondo es oscuro */
         width: 42rem;
     }  
 
@@ -372,7 +372,6 @@ overflow-y: auto; /* Scroll interno para contenido largo */
 /* ===== GUARANTEED WORKING ANIMATION ===== */
 .display.welcome-view {
     /* Basic styles */
-    background-image: url('../../assets/bg/jagim/shavuot/bg-shavuot-01.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
