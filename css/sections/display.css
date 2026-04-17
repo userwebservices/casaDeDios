@@ -158,12 +158,12 @@ overflow-y: auto; /* Scroll interno para contenido largo */
     }
     .overlaidTitle h1 { 
         font-family: var(--font-primary); 
-        font-size: 3vw;
+        font-size: 2rem;
         font-weight: var(--light);
         letter-spacing: 0.2rem;
         line-height: 90%;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
-        padding-bottom: 0rem;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+        padding-bottom: 1rem;
         color: var(--color-white);/* Si el fondo es oscuro */
         width: 42rem;
     }  

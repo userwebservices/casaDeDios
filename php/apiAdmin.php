@@ -136,7 +136,7 @@ function handleGet($db, $action)
             $stmt = $db->query("SELECT * FROM hero_config WHERE activa = 1 LIMIT 1");
             echo json_encode($stmt->fetch(PDO::FETCH_ASSOC) ?: ['error' => 'No hay configuración activa']);
             break;
-        
+
         default:
             echo json_encode(['error' => 'Acción no válida']);
 
