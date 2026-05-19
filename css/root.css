@@ -121,7 +121,7 @@ h1, h2, h3 {
   text-align: center;
   letter-spacing: 0.3rem;
   line-height: 105%;
-  padding: 1rem 0rem;
+  padding: 1rem 0rem; 
   letter-spacing: -0.2vw;
   text-shadow: 2px 2px 5px rgba(28, 29, 30, 0.1); /* Mejor contraste */
 

@@ -7,6 +7,8 @@
     --light-color: #f8f9fa;
 }
 
+
+
 /* General */
 body {
     padding-top: 0; /* Altura del navbar fixed */
@@ -58,12 +60,14 @@ body {
     font-weight: bold;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    line-height: 90%;
 }
 
 .hero-subtitle {
-    font-size: 1.8rem;
-    font-weight: 300;
+    font-size: 2rem;
+    font-weight: 500;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+
 }
 
 
