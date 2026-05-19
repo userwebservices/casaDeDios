@@ -186,3 +186,10 @@ h1, h2, h3 {
              E N D  Styles for text that are displayed in section: "Display"
 ====****||||====****||||====****||||====****||||====****||||====****||||====****||||====****||||====*****/
 
+
+
+.estrofa-hebreo {
+    color: var(--color-primary);
+    font-weight: var(--semi-bold);
+    font-style: italic;
+}
