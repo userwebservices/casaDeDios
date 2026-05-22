@@ -50,6 +50,9 @@ export class __AppState__ {
     }
 }
 
+
+
+
 function formatearLetra(letra) {
     if (!letra) return '';
     return letra.split(/\r?\n/).map(linea => {
@@ -57,6 +60,6 @@ function formatearLetra(letra) {
             const texto = linea.slice(1).trim();
             return `<span class="estrofa-hebreo">${texto}</span><br>`;
         }
-        return `${linea}<br>`;
+        return `<span class="estrofa-traduccion">${linea}</span><br>`;
     }).join('');
 }
