@@ -192,6 +192,7 @@ h1, h2, h3 {
     color: var(--color-primary);
     font-weight: var(--semi-bold);
     font-style: italic;
+    line-height: 90%;
 }
 
 .estrofa-traduccion {
