@@ -15,6 +15,11 @@ export class MenuLoader {
                 // Obtener cantos de esta categoría
                 const cantosRes = await fetch(`${this.API_BASE}?action=getCantosPorCategoria&slug=${cat.slug}`);
                 const cantos = await cantosRes.json();
+
+                // ❌ evitar categorías vacías
+                if (!cantos || cantos.length === 0) {
+                    continue;
+                }
                 
                 // Crear el item del menú
                 const menuItem = this.crearMenuItem(cat, cantos);
