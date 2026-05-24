@@ -25,6 +25,7 @@ export function renderizarCancion(cancion) {
     `;
 } 
  
+
 function formatearLetra(letra) {
     // Agrega validación por si acaso
     if (!letra) return '';
@@ -32,3 +33,4 @@ function formatearLetra(letra) {
         `<p class="estrofa">${parrafo}</p>`
     ).join('');
 }
+    
