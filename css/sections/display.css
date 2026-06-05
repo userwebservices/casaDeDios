@@ -158,12 +158,12 @@ overflow-y: auto; /* Scroll interno para contenido largo */
     }
     .overlaidTitle h1 { 
         font-family: var(--font-primary); 
-        font-size: 2rem;
         font-weight: var(--light);
+        font-size: 4vw;
         letter-spacing: 0.2rem;
-        line-height: 90%;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
-        padding-bottom: 1rem;
+        line-height: 90%; 
+        text-shadow: 2px 2px 5px rgba(25, 24, 24, 0.7);
+        padding-bottom: 0.5rem;
         color: var(--color-white);/* Si el fondo es oscuro */
         width: 42rem;
     }  
@@ -171,13 +171,13 @@ overflow-y: auto; /* Scroll interno para contenido largo */
     .overlaidTitle h2 {
         font-family: var(--font-primary); /* Usando la variable que cree el 3april25 */
         font-weight: var(--light);
-        font-size: 4vw;
-        width: 40rem;
+        font-size: 3vw;
         letter-spacing: 0.2rem;
         line-height: 99%;
-        padding-bottom: 1rem;
-        color: var(--color-white);/* Si el fondo es oscuro */
         text-shadow: 2px 2px 5px rgba(25, 24, 24, 0.7); 
+        padding-bottom: 0.5rem;
+        color: var(--color-white);/* Si el fondo es oscuro */
+        width: 40rem;
 
     }
 
@@ -194,14 +194,14 @@ overflow-y: auto; /* Scroll interno para contenido largo */
 
     .overlaidTitle h4 {
         font-family: var(--font-lemonade) ;
-        font-size: 2vw;
-        color: var(--color-yedid2);
+        font-size: 4vw;
+        color: var(--color-kermes);
         font-weight: var(--light);
         letter-spacing: 0.1rem;
         line-height: 90%;
         padding-bottom: 0.5rem;
-        text-shadow: 2px 2px 5px rgba(25, 24, 24, 0.1); 
-        font-style: italic;
+        text-shadow: 2px 2px 5px rgba(25, 24, 24, 0.7); 
+        /*font-style: italic;*/
 
     }
 
