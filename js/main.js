@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     // Configurar vista de bienvenida
     displaySection.classList.add('welcome-view');
-    displaySection.style.backgroundImage = 'url("assets/bg/cover/YedidBg.webp")';
+    displaySection.style.backgroundImage = 'url("assets/bg/cover/10.webp")';
     
     // Crear instancias
     const appState = new __AppState__();
