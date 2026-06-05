@@ -167,7 +167,7 @@ overflow-y: auto; /* Scroll interno para contenido largo */
         color: var(--color-white);/* Si el fondo es oscuro */
         width: 42rem;
     }  
-
+ 
     .overlaidTitle h2 {
         font-family: var(--font-primary); /* Usando la variable que cree el 3april25 */
         font-weight: var(--light);

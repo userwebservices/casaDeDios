@@ -58,14 +58,14 @@ export class __SongHandlers__ {
     resetToWelcomeScreen() {
     const displaySection = document.querySelector('.display');
     displaySection.classList.add('welcome-view');
-    displaySection.style.backgroundImage = 'url("assets/bg/cover/YedidBg.webp")';
+    displaySection.style.backgroundImage = 'url("assets/bg/cover/10.webp")';
     
     const titleAimCover = document.getElementById('titleAimCover');
     if (titleAimCover) {
         titleAimCover.style.display = 'flex';
         titleAimCover.style.visibility = 'visible';  // ← AGREGAR
         titleAimCover.style.opacity = '1';           // ← AGREGAR
-        titleAimCover.innerHTML = '<h1>¡Todo lo que respira alabe al Señor!</h1>';
+        titleAimCover.innerHTML = '<h1>KOL HANESHAMA: TEHALEL YAH</h1>';
     }
 }
     
