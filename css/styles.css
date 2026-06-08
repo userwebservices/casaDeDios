@@ -11,6 +11,10 @@
 min-width: 320px;
 }
 
+.search-section {
+    z-index: 0;
+}
+
 .menu-grid {
 display: grid;
 grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -22,4 +26,120 @@ padding: 6px 8px;
 background: #f8f9fa;
 border-radius: 4px;
 font-size: 0.5rem;
+}
+
+.search-wrapper {
+    position: relative;
+    max-width: 700px;
+    margin: auto;
+}
+
+.search-wrapper input {
+    border-radius: 50px;
+    height: 55px;
+    padding-left: 45px;
+    border: 2px solid #ddd;
+}
+
+.search-wrapper input:focus {
+    border-color: #ffc107;
+    box-shadow: 0 0 15px rgba(13,110,253,.15);
+}
+
+.search-wrapper .bi-search {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 1rem;
+    z-index: 10;
+}
+
+#menuContainer {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
+}
+
+.modal-content {
+    height: 100vh;
+}
+
+.modal-body {
+    overflow-y: auto;
+}
+
+#songsModal .modal-content {
+    height: 80vh;
+}
+
+#songsModal .modal-body {
+    overflow-y: auto;
+}
+
+.song-card {
+    width: 100%;
+    border: none;
+    background: white;
+    border-radius: 14px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    text-align: left;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+
+    transition: .2s;
+}
+
+.song-card:hover {
+    transform: translateY(-1px);
+}
+
+.song-number {
+    min-width: 21px;
+    font-weight: 500;
+    color: #777777;
+}
+
+.song-title {
+    flex: 1;
+}
+
+
+.scroll-top-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    width: 56px;
+    height: 56px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #ffc107;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,.2);
+
+    cursor: pointer;
+
+    z-index: 1050;
+}
+
+.scroll-top-button i {
+    font-size: 1.5rem;
+}
+
+.scroll-top-button {
+    display: none;
 }
