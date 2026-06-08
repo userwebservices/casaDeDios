@@ -59,6 +59,7 @@ export class BuscadorCantos {
             const a = document.createElement('a');
             a.className = 'list-group-item list-group-item-action';
             a.textContent = `${item.numero || ''} - ${item.titulo}`;
+            a.style.cursor = 'pointer';
 
             a.addEventListener('click', () => {
                 this.seleccionar(item);
