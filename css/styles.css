@@ -71,7 +71,14 @@ min-width: 320px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding: 0 12px 10px;
+} 
+
+@media (min-width: 992px) {
+    .menu-scroll-wrapper {
+        padding: 0 !important;
+    }
 }
+
 
 .menu-scroll-wrapper::-webkit-scrollbar {
     display: none;
