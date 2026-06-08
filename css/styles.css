@@ -80,6 +80,8 @@ min-width: 320px;
 #menuContainer {
     flex-wrap: nowrap;
     width: max-content;
+    min-width: 100%;
+    justify-content: center;
 }
 
 #menuContainer .btn {
