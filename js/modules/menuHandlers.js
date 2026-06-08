@@ -23,34 +23,30 @@ export class __MenuHandlers__ {
 
     setupMenuClicks() {
         document.addEventListener('click', async (e) => {
-            const item = e.target.closest('.dropdown-item');
+
+            const item = e.target.closest('.song-card');
+
             if (!item) return;
 
             e.preventDefault();
-            e.stopPropagation(); // 🔥 importante en mobile
+
+            const songId = item.dataset.songId;
+            const category = item.dataset.category;
+
+            const modal = bootstrap.Modal.getInstance(
+                document.getElementById('songsModal')
+            );
+
+            if (modal) {
+                modal.hide();
+            }
 
             this.resetScrollPosition();
 
-            const songId = item.dataset.songId;
-            const category = item.closest('.dropdown-menu')
-                .previousElementSibling.dataset.category;
-
-            await this.handleSongSelection(category, songId);
-
-            // cerrar dropdowns
-            document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                menu.classList.remove('show');
-            });
-
-            // cerrar menú hamburguesa (Bootstrap 5)
-            const navbarCollapse = document.querySelector('#navbarSupportedContent');
-            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-                const bsCollapse =
-                    bootstrap.Collapse.getInstance(navbarCollapse) ||
-                    new bootstrap.Collapse(navbarCollapse, { toggle: false });
-
-                bsCollapse.hide();
-            }
+            await this.handleSongSelection(
+                category,
+                songId
+            );
         });
     }
     
@@ -102,22 +98,8 @@ export class __MenuHandlers__ {
         setTimeout(() => {
             window.scrollTo(0, 0);
         }, 500);
-    }    
+    }  
 
-
-    /*resetScrollPosition() {
-        // Scroll suave al inicio
-        window.scrollTo({ 
-            top: 0, 
-            behavior: 'instant' // ← Cambiar de 'smooth' a 'instant' para evitar el "saltito" visual
-        });
-    
-        const displayElement = document.querySelector('.display');
-        if (displayElement) {
-            displayElement.scrollTop = 0; // ← Asegurar que .display también esté arriba
-        }
-    }*/
-    
     async handleSongSelection(category, songId) {
         try {
             this.songHandlers.hideWelcomeMessage();
@@ -142,54 +124,44 @@ export class __MenuHandlers__ {
         }
     }
 
-
-
-
-        setupMobileMenu() {
-            // Cerrar todos los dropdowns al cargar si es móvil
-            if (window.innerWidth <= 768) {
+    setupMobileMenu() {
+        // Cerrar todos los dropdowns al cargar si es móvil
+        if (window.innerWidth <= 768) {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('show');
+            });
+        }
+        
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('#navbarSupportedContent');
+        
+        if (navbarToggler && navbarCollapse) {
+            // Cerrar dropdowns cuando se abre/cierra el menú hamburguesa
+            navbarToggler.addEventListener('click', () => {
                 document.querySelectorAll('.dropdown-menu').forEach(menu => {
                     menu.classList.remove('show');
                 });
-            }
+            });
             
-            const navbarToggler = document.querySelector('.navbar-toggler');
-            const navbarCollapse = document.querySelector('#navbarSupportedContent');
-            
-            if (navbarToggler && navbarCollapse) {
-                // Cerrar dropdowns cuando se abre/cierra el menú hamburguesa
-                navbarToggler.addEventListener('click', () => {
-                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                        menu.classList.remove('show');
-                    });
-                });
+            // ✨ NUEVO: Cerrar menú al hacer click/touch fuera de él
+            document.addEventListener('click', (e) => {
+                const isMenuOpen = navbarCollapse.classList.contains('show');
+                const clickedInsideMenu = navbarCollapse.contains(e.target);
+                const clickedToggler = navbarToggler.contains(e.target);
                 
-                // ✨ NUEVO: Cerrar menú al hacer click/touch fuera de él
-                document.addEventListener('click', (e) => {
-                    const isMenuOpen = navbarCollapse.classList.contains('show');
-                    const clickedInsideMenu = navbarCollapse.contains(e.target);
-                    const clickedToggler = navbarToggler.contains(e.target);
+                // Si el menú está abierto Y el click fue fuera del menú Y no fue en el toggler
+                if (isMenuOpen && !clickedInsideMenu && !clickedToggler) {
+                    // Cerrar menú principal
+                    navbarCollapse.classList.remove('show');
                     
-                    // Si el menú está abierto Y el click fue fuera del menú Y no fue en el toggler
-                    if (isMenuOpen && !clickedInsideMenu && !clickedToggler) {
-                        // Cerrar menú principal
-                        navbarCollapse.classList.remove('show');
-                        
-                        // También cerrar todos los dropdowns abiertos
-                        document.querySelectorAll('.dropdown-menu.show').forEach(dropdown => {
-                            dropdown.classList.remove('show');
-                        });
-                    }
-                });
-            }
+                    // También cerrar todos los dropdowns abiertos
+                    document.querySelectorAll('.dropdown-menu.show').forEach(dropdown => {
+                        dropdown.classList.remove('show');
+                    });
+                }
+            });
         }
-
-
-
-
-
-
-
+    }
 
 }
 
