@@ -32,13 +32,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     await menuLoader.cargarMenu();
     
     // Configurar comportamiento del menú
-    menuHandlers.setupMenuHover();
+    //menuHandlers.setupMenuHover();
     menuHandlers.setupMenuClicks();
-    menuHandlers.setupTouchSupport();
-    menuHandlers.setupMobileMenu();  // ← AGREGAR ESTA LÍNEA
-
-    
-
+    //menuHandlers.setupTouchSupport();
+    //menuHandlers.setupMobileMenu();  // ← AGREGAR ESTA LÍNEA
     
     /* Mensaje de bienvenida
     if (titleAimCover) {

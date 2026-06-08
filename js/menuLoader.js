@@ -22,7 +22,7 @@ export class MenuLoader {
                 }
                 
                 // Crear el item del menú
-                const menuItem = this.crearMenuItem(cat, cantos);
+                const menuItem = this.crearCategoriaButton(cat, cantos);
                 menuContainer.appendChild(menuItem);
             }
         } catch (error) {
@@ -30,23 +30,78 @@ export class MenuLoader {
         }
     }
 
-    crearMenuItem(categoria, cantos) {
-        const li = document.createElement('li');
-        li.className = 'nav-item dropdown';
+    // crearMenuItem(categoria, cantos) {
+    //     const li = document.createElement('li');
+    //     li.className = 'nav-item dropdown';
         
-        li.innerHTML = `
-            <a class="nav-link dropdown-toggle" href="#" role="button"
-               data-toggle="dropdown" data-category="${categoria.slug}">
-                ${categoria.nombre}
-            </a>
-            <div class="dropdown-menu mega-dropdown">
-                <div class="dropdown-grid-container ps-2">
-                    ${this.crearColumnas(cantos, categoria.slug)}
-                </div>
-            </div>
-        `;
+    //     li.innerHTML = `
+    //         <a class="nav-link dropdown-toggle" href="#" role="button"
+    //            data-toggle="dropdown" data-category="${categoria.slug}">
+    //             ${categoria.nombre}
+    //         </a>
+    //         <div class="dropdown-menu mega-dropdown">
+    //             <div class="dropdown-grid-container ps-2">
+    //                 ${this.crearColumnas(cantos, categoria.slug)}
+    //             </div>
+    //         </div>
+    //     `;
         
-        return li;
+    //     return li;
+    // }
+
+    crearCategoriaButton(categoria, cantos) {
+        const button = document.createElement('button');
+
+        button.className =
+            'btn btn-outline-warning rounded-pill';
+
+        button.textContent =
+            categoria.nombre;
+
+        button.addEventListener('click', () => {
+            this.abrirModalCategoria(
+                categoria,
+                cantos
+            );
+        });
+
+        return button;
+    }
+
+    abrirModalCategoria(categoria, cantos) {
+
+        document.getElementById(
+            'songsModalTitle'
+        ).textContent =
+            categoria.nombre;
+
+        document.getElementById('songsModalBody').innerHTML =
+        cantos.map(c => `
+            <button
+                class="song-card"
+                data-song-id="${c.numero}"
+                data-category="${categoria.slug}">
+
+                <span class="song-number">
+                    ${c.numero}
+                </span>
+
+                <span class="song-title">
+                    ${c.titulo}
+                </span>
+
+            </button>
+        `).join('');
+            
+
+        const modal =
+            new bootstrap.Modal(
+                document.getElementById(
+                    'songsModal'
+                )
+            );
+
+        modal.show();
     }
 
     crearColumnas(cantos, categoria) {
