@@ -579,4 +579,45 @@ overflow-y: auto; /* Scroll interno para contenido largo */
   }
 
   .logo-svg { width: 900px; }
+  
+}
+
+
+
+/*Para el menu y el boton de busqueda en un sólo row*/
+
+@media (min-width: 992px) {
+    .search-section {
+        padding: 12px 0 !important;
+    }
+
+    .search-section .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .search-section .search-wrapper {
+        flex: 1;
+        margin: 0 !important;
+    }
+
+    .search-section .search-wrapper .form-control {
+        height: 40px !important;
+        padding-top: 0.3rem !important;
+        padding-bottom: 0.3rem !important;
+    }
+
+    .search-section .menu-scroll-wrapper {
+        display: flex;
+        align-items: center;
+        flex: 0 0 auto;
+    }
+
+    .search-section #menuContainer {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
 }
