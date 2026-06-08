@@ -30,25 +30,6 @@ export class MenuLoader {
         }
     }
 
-    // crearMenuItem(categoria, cantos) {
-    //     const li = document.createElement('li');
-    //     li.className = 'nav-item dropdown';
-        
-    //     li.innerHTML = `
-    //         <a class="nav-link dropdown-toggle" href="#" role="button"
-    //            data-toggle="dropdown" data-category="${categoria.slug}">
-    //             ${categoria.nombre}
-    //         </a>
-    //         <div class="dropdown-menu mega-dropdown">
-    //             <div class="dropdown-grid-container ps-2">
-    //                 ${this.crearColumnas(cantos, categoria.slug)}
-    //             </div>
-    //         </div>
-    //     `;
-        
-    //     return li;
-    // }
-
     crearCategoriaButton(categoria, cantos) {
         const button = document.createElement('button');
 
