@@ -4,31 +4,36 @@ export class MenuLoader {
     }
 
     async cargarMenu() {
-        try {
-            // Obtener categorías
-            const response = await fetch(`${this.API_BASE}?action=getCategorias`);
-            const categorias = await response.json();
-            
-            const menuContainer = document.getElementById('menuContainer');
-            
-            for (const cat of categorias) {
-                // Obtener cantos de esta categoría
-                const cantosRes = await fetch(`${this.API_BASE}?action=getCantosPorCategoria&slug=${cat.slug}`);
-                const cantos = await cantosRes.json();
+    try {
+        const menuContainer = document.getElementById('menuContainer');
 
-                // ❌ evitar categorías vacías
-                if (!cantos || cantos.length === 0) {
-                    continue;
-                }
-                
-                // Crear el item del menú
-                const menuItem = this.crearCategoriaButton(cat, cantos);
-                menuContainer.appendChild(menuItem);
-            }
-        } catch (error) {
-            console.error('Error cargando menú:', error);
+        // ← AGREGAR: mostrar placeholders mientras carga
+        menuContainer.innerHTML = `
+            <div class="placeholder-glow d-flex gap-2">
+                <span class="placeholder rounded-pill btn btn-outline-warning" style="width: 90px;"></span>
+                <span class="placeholder rounded-pill btn btn-outline-warning" style="width: 90px;"></span>
+                <span class="placeholder rounded-pill btn btn-outline-warning" style="width: 90px;"></span>
+                <span class="placeholder rounded-pill btn btn-outline-warning" style="width: 90px;"></span>
+            </div>
+        `;
+
+        const response = await fetch(`${this.API_BASE}?action=getCategorias`);
+        const categorias = await response.json();
+
+        // ← AGREGAR: limpiar placeholders antes de pintar botones reales
+        menuContainer.innerHTML = '';
+
+        for (const cat of categorias) {
+            const cantosRes = await fetch(`${this.API_BASE}?action=getCantosPorCategoria&slug=${cat.slug}`);
+            const cantos = await cantosRes.json();
+            if (!cantos || cantos.length === 0) continue;
+            const menuItem = this.crearCategoriaButton(cat, cantos);
+            menuContainer.appendChild(menuItem);
         }
+    } catch (error) {
+        console.error('Error cargando menú:', error);
     }
+}
 
     crearCategoriaButton(categoria, cantos) {
         const button = document.createElement('button');
