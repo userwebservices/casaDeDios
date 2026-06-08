@@ -12,7 +12,7 @@ min-width: 320px;
 }
 
 .search-section {
-    z-index: 0;
+    z-index: 100;
 }
 
 .menu-grid {
@@ -22,10 +22,10 @@ gap: 8px;
 }
 
 .menu-item {
-padding: 6px 8px;
-background: #f8f9fa;
-border-radius: 4px;
-font-size: 0.5rem;
+    padding: 6px 8px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    font-size: 0.5rem;
 }
 
 .search-wrapper {
