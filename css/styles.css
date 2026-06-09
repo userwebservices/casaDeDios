@@ -178,3 +178,18 @@ min-width: 320px;
 .scroll-top-button {
     display: none;
 }
+
+
+/*alignt to the left the menu hamburger in mobile, whe is clicked on it*/
+
+@media (max-width: 991px) {
+    .navbar-collapse .navbar-nav {
+        text-align: left !important;
+        align-items: flex-start !important;
+        padding-left: 1rem;
+    }
+
+    .navbar-collapse .nav-link {
+        text-align: left !important;
+    }
+}
