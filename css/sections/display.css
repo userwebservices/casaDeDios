@@ -157,16 +157,19 @@ overflow-y: auto; /* Scroll interno para contenido largo */
         padding-bottom: 0.1rem;   
     }
     .overlaidTitle h1 { 
-        font-family: var(--font-primary); 
-        font-weight: var(--light);
-        font-size: 4vw;
-        letter-spacing: 0.2rem;
-        line-height: 90%; 
+        font-family: var(--font-text-Anton); 
+        font-weight: var(--bold);
+        font-size: 5vw;
+        letter-spacing: 0.1rem;
+        line-height: 120%; 
         text-shadow: 2px 2px 5px rgba(25, 24, 24, 0.7);
         padding-bottom: 0.5rem;
         color: var(--color-white);/* Si el fondo es oscuro */
         width: 42rem;
+        text-transform: uppercase;
     }  
+
+    
  
     .overlaidTitle h2 {
         font-family: var(--font-primary); /* Usando la variable que cree el 3april25 */
@@ -621,4 +624,8 @@ overflow-y: auto; /* Scroll interno para contenido largo */
         gap: 0.5rem;
     }
 }
+
+
+
+
 
