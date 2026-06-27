@@ -62,7 +62,7 @@ min-width: 320px;
     top: 56px; /* altura del navbar */
     left: 0;
     right: 0;
-    z-index: 1020;
+    z-index: 100;
     padding: 12px 0 0;
 }
 
@@ -71,7 +71,14 @@ min-width: 320px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding: 0 12px 10px;
+} 
+
+@media (min-width: 992px) {
+    .menu-scroll-wrapper {
+        padding: 0 !important;
+    }
 }
+
 
 .menu-scroll-wrapper::-webkit-scrollbar {
     display: none;
@@ -170,4 +177,19 @@ min-width: 320px;
 
 .scroll-top-button {
     display: none;
+}
+
+
+/*alignt to the left the menu hamburger in mobile, whe is clicked on it*/
+
+@media (max-width: 991px) {
+    .navbar-collapse .navbar-nav {
+        text-align: left !important;
+        align-items: flex-start !important;
+        padding-left: 1rem;
+    }
+
+    .navbar-collapse .nav-link {
+        text-align: left !important;
+    }
 }
