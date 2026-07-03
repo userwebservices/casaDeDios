@@ -4,35 +4,42 @@ export class MenuLoader {
     }
 
     async cargarMenu() {
+    const cacheKey = 'himnario_menu';
+    const cached = sessionStorage.getItem(cacheKey);
+    if (cached) {
+        this.pintarMenu(JSON.parse(cached));
+        return;
+    }
+
     try {
         const menuContainer = document.getElementById('menuContainer');
-
-        // ← AGREGAR: mostrar placeholders mientras carga
-        menuContainer.innerHTML = `
-            <div class="placeholder-glow d-flex gap-2">
-                <span class="placeholder rounded-pill btn btn-outline-warning" style="width: 90px;"></span>
-                <span class="placeholder rounded-pill btn btn-outline-warning" style="width: 90px;"></span>
-                <span class="placeholder rounded-pill btn btn-outline-warning" style="width: 90px;"></span>
-                <span class="placeholder rounded-pill btn btn-outline-warning" style="width: 90px;"></span>
-            </div>
-        `;
+        menuContainer.innerHTML = `...placeholders...`;
 
         const response = await fetch(`${this.API_BASE}?action=getCategorias`);
         const categorias = await response.json();
 
-        // ← AGREGAR: limpiar placeholders antes de pintar botones reales
-        menuContainer.innerHTML = '';
-
+        const data = [];
         for (const cat of categorias) {
             const cantosRes = await fetch(`${this.API_BASE}?action=getCantosPorCategoria&slug=${cat.slug}`);
             const cantos = await cantosRes.json();
             if (!cantos || cantos.length === 0) continue;
-            const menuItem = this.crearCategoriaButton(cat, cantos);
-            menuContainer.appendChild(menuItem);
+            data.push({ cat, cantos });
         }
+
+        sessionStorage.setItem(cacheKey, JSON.stringify(data));
+        this.pintarMenu(data);
     } catch (error) {
         console.error('Error cargando menú:', error);
     }
+}
+
+pintarMenu(data) {
+    const menuContainer = document.getElementById('menuContainer');
+    menuContainer.innerHTML = '';
+    data.forEach(({ cat, cantos }) => {
+        const menuItem = this.crearCategoriaButton(cat, cantos);
+        menuContainer.appendChild(menuItem);
+    });
 }
 
     crearCategoriaButton(categoria, cantos) {
