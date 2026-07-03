@@ -8,33 +8,38 @@ export class __AppState__ {
     }
 
     async loadJsonData() {
-        try {
-            // Cargar categorías
-            const categoriasRes = await fetch(`${this.API_BASE}?action=getCategorias`);
-            const categorias = await categoriasRes.json();
-            
-            // Crear estructura similar al JSON original
-            this.jsonData = {};
-            
-            // Cargar cantos de cada categoría
-            for (const cat of categorias) {
-                const cantosRes = await fetch(`${this.API_BASE}?action=getCantosPorCategoria&slug=${cat.slug}`);
-                const cantos = await cantosRes.json();
-                
-                // Mapear campos de MySQL a formato JSON original
-                this.jsonData[cat.slug] = cantos.map(canto => ({
-                    id: canto.numero,
-                    title: `<h1 class='titleDark'>${canto.numero} ${canto.titulo}</h1>`,
-                                        estrofas: `<article class='contentDark'>${formatearLetra(canto.letra)}</article>`,  // ← CAMBIO AQUÍ
-                    'bg-img': canto.bg_img ? `assets/bg/${cat.slug}/${canto.bg_img}` : ''
-                }));
-            }
-        } catch (error) {
-            console.error('Error cargando datos:', error);
-            throw error;
-        }
+    const cacheKey = 'himnario_jsonData';
+    const cached = sessionStorage.getItem(cacheKey);
+    if (cached) {
+        this.jsonData = JSON.parse(cached);
+        return;
     }
 
+    try {
+        const categoriasRes = await fetch(`${this.API_BASE}?action=getCategorias`);
+        const categorias = await categoriasRes.json();
+
+        this.jsonData = {};
+
+        for (const cat of categorias) {
+            const cantosRes = await fetch(`${this.API_BASE}?action=getCantosPorCategoria&slug=${cat.slug}`);
+            const cantos = await cantosRes.json();
+
+            this.jsonData[cat.slug] = cantos.map(canto => ({
+                id: canto.numero,
+                title: `<h1 class='titleDark'>${canto.numero} ${canto.titulo}</h1>`,
+                estrofas: `<article class='contentDark'>${formatearLetra(canto.letra)}</article>`,
+                'bg-img': canto.bg_img ? `assets/bg/${cat.slug}/${canto.bg_img}` : ''
+            }));
+        }
+
+        sessionStorage.setItem(cacheKey, JSON.stringify(this.jsonData));
+    } catch (error) {
+        console.error('Error cargando datos:', error);
+        throw error;
+    }
+}
+ 
     findSong(category, songId) {
         if (!this.jsonData[category]) {
             throw new Error(`Categoría ${category} no encontrada`);
