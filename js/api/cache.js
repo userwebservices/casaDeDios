@@ -1,60 +1,69 @@
-// cache.js - Gestor simple de caché en memoria
-
+// cache.js - Caché en memoria + persistencia en sessionStorage
 class SimpleCache {
     constructor() {
         this.cache = new Map();
-        this.defaultTTL = 5 * 60 * 1000; // 5 minutos en milisegundos
+        this.defaultTTL = 5 * 60 * 1000; // 5 minutos
+        this.storageKey = 'himnario_cache';
+        this._loadFromStorage();
     }
 
-    // Guardar datos en caché
     set(key, data, ttl = this.defaultTTL) {
         const expiration = Date.now() + ttl;
-        this.cache.set(key, {
-            data,
-            expiration
-        });
-        console.log(`✅ Datos guardados en caché para clave: ${key}`);
+        this.cache.set(key, { data, expiration });
+        this._saveToStorage();
     }
 
-    // Obtener datos de caché
     get(key) {
         const cached = this.cache.get(key);
-        
-        if (!cached) {
-            console.log(`❌ No hay datos en caché para clave: ${key}`);
-            return null;
-        }
-
-        // Verificar si ha expirado
+        if (!cached) return null;
         if (Date.now() > cached.expiration) {
             this.cache.delete(key);
-            console.log(`⏰ Datos expirados para clave: ${key}`);
+            this._saveToStorage();
             return null;
         }
- 
-        console.log(`✅ Datos obtenidos de caché para clave: ${key}`);
         return cached.data;
     }
 
-    // Verificar si una clave existe y es válida
     has(key) {
         const cached = this.cache.get(key);
         if (!cached) return false;
-        
         if (Date.now() > cached.expiration) {
             this.cache.delete(key);
             return false;
         }
-        
         return true;
     }
 
-    // Limpiar caché (opcional)
     clear() {
         this.cache.clear();
-        console.log('🧹 Caché limpiado');
+        sessionStorage.removeItem(this.storageKey);
+    }
+
+    // --- Persistencia ---
+    _saveToStorage() {
+        try {
+            const obj = Object.fromEntries(this.cache);
+            sessionStorage.setItem(this.storageKey, JSON.stringify(obj));
+        } catch (e) {
+            console.warn('No se pudo guardar caché en sessionStorage:', e);
+        }
+    }
+
+    _loadFromStorage() {
+        try {
+            const raw = sessionStorage.getItem(this.storageKey);
+            if (!raw) return;
+            const obj = JSON.parse(raw);
+            const now = Date.now();
+            for (const [key, value] of Object.entries(obj)) {
+                if (value.expiration > now) {
+                    this.cache.set(key, value);
+                }
+            }
+        } catch (e) {
+            console.warn('No se pudo cargar caché de sessionStorage:', e);
+        }
     }
 }
 
-// Exportar una única instancia
 export const cache = new SimpleCache();
