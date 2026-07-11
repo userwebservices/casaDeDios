@@ -11,7 +11,7 @@ export class __AppState__ {
     const cacheKey = 'himnario_jsonData';
     const cached = sessionStorage.getItem(cacheKey);
     if (cached) {
-        this.jsonData = JSON.parse(cached);
+        this.jsonData = JSON.parse(cached); 
         return;
     }
 
@@ -26,10 +26,10 @@ export class __AppState__ {
             const cantos = await cantosRes.json();
 
             this.jsonData[cat.slug] = cantos.map(canto => ({
-                id: canto.numero,
-                title: `<h1 class='titleDark'>${canto.numero} ${canto.titulo}</h1>`,
-                estrofas: `<article class='contentDark'>${formatearLetra(canto.letra)}</article>`,
-                'bg-img': canto.bg_img ? `assets/bg/${cat.slug}/${canto.bg_img}` : ''
+            id: canto.numero,
+            title: `<h1 class='titleDark'>${canto.numero} ${canto.titulo}</h1>`,
+            estrofas: `<article class='contentDark'>${formatearLetra(canto.letra, cat.slug)}</article>`,
+            'bg-img': canto.bg_img ? `assets/bg/${cat.slug}/${canto.bg_img}` : ''
             }));
         }
 
@@ -56,15 +56,17 @@ export class __AppState__ {
 }
 
 
-
-
-function formatearLetra(letra) {
+function formatearLetra(letra, slug) {
     if (!letra) return '';
+    const esHebreo = slug === 'hebreos';
     return letra.split(/\r?\n/).map(linea => {
-        if (linea.startsWith('#')) {
+        if (esHebreo && linea.startsWith('#')) {
             const texto = linea.slice(1).trim();
             return `<span class="estrofa-hebreo">${texto}</span><br>`;
         }
-        return `<span class="estrofa-traduccion">${linea}</span><br>`;
+        if (esHebreo) {
+            return `<span class="estrofa-traduccion">${linea}</span><br>`;
+        }
+        return `${linea}<br>`;
     }).join('');
 }
