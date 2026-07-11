@@ -93,7 +93,7 @@ h1, h2, h3 {
 }  
 .contentDark{
   font-family: var(--font-text-primary); /* Usando la variable que cree el 3april25 */
-  font-weight: var(--light);
+  font-weight: var(--medium);
   font-size: 6vw;
   text-align: center;
   color: var(--color-white);
