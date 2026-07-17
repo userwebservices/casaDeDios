@@ -156,17 +156,24 @@ overflow-y: auto; /* Scroll interno para contenido largo */
         line-height: 90%;
         padding-bottom: 0.1rem;   
     }
-    .overlaidTitle h1 { 
+    .overlaidTitle h1 {  
         font-family: var(--font-text-Anton); 
         font-weight: var(--bold);
         font-size: 5vw;
         letter-spacing: 0.1rem;
         line-height: 120%; 
-        text-shadow: 2px 2px 5px rgba(25, 24, 24, 0.7);
+        text-shadow: 0 3px 8px rgba(0,0,0,.65),
+                    0 0 2px rgba(0,0,0,.5);
         padding-bottom: 0.5rem;
-        color: var(--color-white);/* Si el fondo es oscuro */
+        color: #F8F6F2;/* Si el fondo es oscuro */
         width: 42rem;
         text-transform: uppercase;
+        /*
+        background: rgba(0,0,0,.35);
+        backdrop-filter: blur(3px);
+        padding:1rem;
+        border-radius:0.5rem;
+        */
     }  
 
     
