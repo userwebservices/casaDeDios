@@ -90,7 +90,7 @@ h1, h2, h3 {
   font-size: 5vw;
     letter-spacing: 0.5rem;
 
-}  
+}   
 .contentDark{
   font-family: var(--font-text-primary); /* Usando la variable que cree el 3april25 */
   font-weight: var(--medium);
