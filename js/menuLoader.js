@@ -46,7 +46,7 @@ pintarMenu(data) {
         const button = document.createElement('button');
 
         button.className =
-            'btn btn-outline-warning rounded-pill';
+            'btn btn-outline-info rounded-pill';
 
         button.textContent =
             categoria.nombre;
