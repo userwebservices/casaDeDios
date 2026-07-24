@@ -36,15 +36,11 @@ export class HeroLoader {
         if (hero.icono_titulo) {
             html += `<i class="${hero.icono_titulo}"></i> `;
         }
-        html += `<h1>${hero.titulo}</h1>`;
         
         // Subtítulos opcionales
-        if (hero.subtitulo_h2) {
-            html += `<h2>${hero.subtitulo_h2}</h2>`;
-        }
-        if (hero.subtitulo_h4) {
-            html += `<h4>${hero.subtitulo_h4}</h4>`;
-        }
+        if (hero.subtitulo_h2) html += `<h2>${hero.subtitulo_h2}</h2>`;
+        html += `<h1>${hero.titulo}</h1>`;
+        if (hero.subtitulo_h4) html += `<h4>${hero.subtitulo_h4}</h4>`;
         
         // Referencia con ícono
         if (hero.referencia_h5) {
