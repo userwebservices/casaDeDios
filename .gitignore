@@ -1,3 +1,5 @@
 php/db.php
 .DS_Store
 node_modules/
+php/config-mail.php
+vendor/

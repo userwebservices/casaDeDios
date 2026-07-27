@@ -5,6 +5,7 @@ if (!isset($_SESSION['admin_logged_in']) || !$_SESSION['admin_logged_in']) {
     exit;
 }
 require_once __DIR__ . '/../db.php';
+require_once __DIR__ . '/../mail/enviarNotificacion.php';
 
 // Traer categorías para el select
 $categorias = $conexion->query("SELECT id, nombre FROM blog_categorias ORDER BY nombre")->fetchAll();
@@ -36,6 +37,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'estado' => $estado,
         'fecha_publicacion' => $fecha_publicacion
     ]);
+
+    // Enviar notificación solo si se publicó
+    if ($estado === 'publicado') {
+        $nuevoId = $conexion->lastInsertId();
+        $stmtPost = $conexion->prepare(
+            "SELECT p.*, c.nombre AS categoria FROM blog_posts p
+         LEFT JOIN blog_categorias c ON p.categoria_id = c.id
+         WHERE p.id = :id"
+        );
+        $stmtPost->execute(['id' => $nuevoId]);
+        $postCompleto = $stmtPost->fetch();
+        enviarNotificacionPost($postCompleto, $conexion);
+    }
 
     $mensaje = "Post guardado correctamente.";
 }
