@@ -31,6 +31,8 @@ function enviarNotificacionPost($post, $conexion)
         "SELECT email FROM blog_suscriptores WHERE confirmado = 1"
     )->fetchAll();
 
+    file_put_contents(__DIR__ . '/mail-debug.log', date('Y-m-d H:i:s') . " - Suscriptores encontrados: " . count($suscriptores) . "\n", FILE_APPEND);
+
     if (empty($suscriptores)) {
         return; // nadie a quien enviar
     }
@@ -57,7 +59,9 @@ function enviarNotificacionPost($post, $conexion)
         }
 
         $mail->send();
+        file_put_contents(__DIR__ . '/mail-debug.log', date('Y-m-d H:i:s') . " - Enviado OK a " . count($suscriptores) . " suscriptores\n", FILE_APPEND);
     } catch (Exception $e) {
         error_log('Error enviando notificación: ' . $mail->ErrorInfo);
+        file_put_contents(__DIR__ . '/mail-debug.log', date('Y-m-d H:i:s') . ' - ERROR: ' . $mail->ErrorInfo . "\n", FILE_APPEND);
     }
 }
