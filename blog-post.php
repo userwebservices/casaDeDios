@@ -35,11 +35,12 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
         <?= htmlspecialchars($ogTitulo) ?> | Casa de Dios
     </title>
 
+
     <!-- OpenGraph -->
-    <meta property="og:title" content="<?= htmlspecialchars($ogTitulo) ?>">
-    <meta property="og:description" content="<?= htmlspecialchars($ogDescripcion) ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($ogImagen) ?>">
-    <meta property="og:url" content="<?= $ogUrl ?>">
+    <meta property="og:title" content="<?php echo htmlspecialchars($ogTitulo); ?>">
+    <meta property="og:description" content="<?php echo htmlspecialchars($ogDescripcion); ?>">
+    <meta property="og:image" content="<?php echo htmlspecialchars($ogImagen); ?>">
+    <meta property="og:url" content="<?php echo $ogUrl; ?>">
     <meta property="og:type" content="article">
 
     <meta charset="utf-8">
@@ -141,17 +142,20 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
     <main class="blog-post">
         <?php if ($post): ?>
             <span class="blog-post__categoria">
-                <?= htmlspecialchars($post['categoria'] ?? '') ?>
+                
+
+                <?php echo htmlspecialchars($post['categoria'] ?? ''); ?>
             </span>
             <h1 class="blog-post__titulo">
-                <?= htmlspecialchars($post['titulo']) ?>
+                <?php echo htmlspecialchars($post['titulo']); ?>
             </h1>
             <?php if ($post['imagen_portada']): ?>
-                <img src="<?= htmlspecialchars($post['imagen_portada']) ?>" alt="<?= htmlspecialchars($post['titulo']) ?>"
+                <img src="<?php echo htmlspecialchars($post['imagen_portada']); ?>" alt="<?= htmlspecialchars($post['titulo']) ?>"
                     class="blog-post__imagen">
             <?php endif; ?>
             <div class="blog-post__contenido">
-                <?= $post['contenido'] ?>
+                <?php echo $post['contenido']; ?>
+
             </div>
         <?php else: ?>
             <p>No se encontró la publicación.</p>
