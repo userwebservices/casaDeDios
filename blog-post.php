@@ -53,7 +53,7 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
 
 <body>
 
-<!-- H E A D E R -->
+    <!-- H E A D E R -->
     <header>
         <!-- NAVBAR (igual que index.html) -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -62,8 +62,7 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
                     <!-- Tu logo SVG aquí -->
                     <svg width="32" height="32" viewBox="0 0 100 100" class="me-2">
                         <!-- Pega tu SVG -->
-                        <?xml version="1.0" encoding="UTF-8"?><svg id="Layer_2" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 843.33 843.33">
+                        <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 843.33 843.33">
                             <defs>
                                 <style>
                                     .cls-1 {
@@ -140,7 +139,7 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
     <main class="blog-post">
         <?php if ($post): ?>
             <span class="blog-post__categoria">
-                
+
 
                 <?php echo htmlspecialchars($post['categoria'] ?? ''); ?>
             </span>
@@ -148,8 +147,8 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
                 <?php echo htmlspecialchars($post['titulo']); ?>
             </h1>
             <?php if ($post['imagen_portada']): ?>
-                <img src="<?php echo htmlspecialchars($post['imagen_portada']); ?>" alt="<?php echo htmlspecialchars($post['titulo']); ?>"
-                    class="blog-post__imagen">
+                <img src="<?php echo htmlspecialchars($post['imagen_portada']); ?>"
+                    alt="<?php echo htmlspecialchars($post['titulo']); ?>" class="blog-post__imagen">
 
             <?php endif; ?>
             <div class="blog-post__contenido">
@@ -162,7 +161,7 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
     </main>
 
     <!-- footer igual que en blog.html -->
-     <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer class="bg-dark text-white py-4 mt-5">
         <div class="container">
             <div class="row">
