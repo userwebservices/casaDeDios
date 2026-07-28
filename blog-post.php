@@ -32,19 +32,18 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <?= htmlspecialchars($ogTitulo) ?> | Casa de Dios
+        <?php echo htmlspecialchars($ogTitulo); ?> | Casa de Dios
     </title>
 
+
     <!-- OpenGraph -->
-    <meta property="og:title" content="<?= htmlspecialchars($ogTitulo) ?>">
-    <meta property="og:description" content="<?= htmlspecialchars($ogDescripcion) ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($ogImagen) ?>">
-    <meta property="og:url" content="<?= $ogUrl ?>">
+    <meta property="og:title" content="<?php echo htmlspecialchars($ogTitulo); ?>">
+    <meta property="og:description" content="<?php echo htmlspecialchars($ogDescripcion); ?>">
+    <meta property="og:image" content="<?php echo htmlspecialchars($ogImagen); ?>">
+    <meta property="og:url" content="<?php echo $ogUrl; ?>">
     <meta property="og:type" content="article">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blog</title> <!-- Bootstrap 5 -->
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/styles.css?v=1.0.3">
@@ -54,7 +53,7 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
 
 <body>
 
-<!-- H E A D E R -->
+    <!-- H E A D E R -->
     <header>
         <!-- NAVBAR (igual que index.html) -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -63,8 +62,7 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
                     <!-- Tu logo SVG aquí -->
                     <svg width="32" height="32" viewBox="0 0 100 100" class="me-2">
                         <!-- Pega tu SVG -->
-                        <?xml version="1.0" encoding="UTF-8"?><svg id="Layer_2" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 843.33 843.33">
+                        <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 843.33 843.33">
                             <defs>
                                 <style>
                                     .cls-1 {
@@ -141,17 +139,21 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
     <main class="blog-post">
         <?php if ($post): ?>
             <span class="blog-post__categoria">
-                <?= htmlspecialchars($post['categoria'] ?? '') ?>
+
+
+                <?php echo htmlspecialchars($post['categoria'] ?? ''); ?>
             </span>
             <h1 class="blog-post__titulo">
-                <?= htmlspecialchars($post['titulo']) ?>
+                <?php echo htmlspecialchars($post['titulo']); ?>
             </h1>
             <?php if ($post['imagen_portada']): ?>
-                <img src="<?= htmlspecialchars($post['imagen_portada']) ?>" alt="<?= htmlspecialchars($post['titulo']) ?>"
-                    class="blog-post__imagen">
+                <img src="<?php echo htmlspecialchars($post['imagen_portada']); ?>"
+                    alt="<?php echo htmlspecialchars($post['titulo']); ?>" class="blog-post__imagen">
+
             <?php endif; ?>
             <div class="blog-post__contenido">
-                <?= $post['contenido'] ?>
+                <?php echo $post['contenido']; ?>
+
             </div>
         <?php else: ?>
             <p>No se encontró la publicación.</p>
@@ -159,7 +161,7 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
     </main>
 
     <!-- footer igual que en blog.html -->
-     <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer class="bg-dark text-white py-4 mt-5">
         <div class="container">
             <div class="row">
