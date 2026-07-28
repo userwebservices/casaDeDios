@@ -32,7 +32,7 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <?= htmlspecialchars($ogTitulo) ?> | Casa de Dios
+        <?php echo htmlspecialchars($ogTitulo); ?> | Casa de Dios
     </title>
 
 
