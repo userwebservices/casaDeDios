@@ -43,9 +43,7 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
     <meta property="og:url" content="<?php echo $ogUrl; ?>">
     <meta property="og:type" content="article">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blog</title> <!-- Bootstrap 5 -->
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/styles.css?v=1.0.3">
@@ -150,8 +148,9 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
                 <?php echo htmlspecialchars($post['titulo']); ?>
             </h1>
             <?php if ($post['imagen_portada']): ?>
-                <img src="<?php echo htmlspecialchars($post['imagen_portada']); ?>" alt="<?= htmlspecialchars($post['titulo']) ?>"
+                <img src="<?php echo htmlspecialchars($post['imagen_portada']); ?>" alt="<?php echo htmlspecialchars($post['titulo']); ?>"
                     class="blog-post__imagen">
+
             <?php endif; ?>
             <div class="blog-post__contenido">
                 <?php echo $post['contenido']; ?>
