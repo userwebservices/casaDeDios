@@ -138,25 +138,33 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
 
     <main class="blog-post">
         <?php if ($post): ?>
-            <span class="blog-post__categoria">
-
-
-                <?php echo htmlspecialchars($post['categoria'] ?? ''); ?>
-            </span>
-            <h1 class="blog-post__titulo">
-                <?php echo htmlspecialchars($post['titulo']); ?>
-            </h1>
             <?php if ($post['imagen_portada']): ?>
-                <img src="<?php echo htmlspecialchars($post['imagen_portada']); ?>"
-                    alt="<?php echo htmlspecialchars($post['titulo']); ?>" class="blog-post__imagen">
-
+                <div class="blog-post__hero">
+                    <img src="<?php echo htmlspecialchars($post['imagen_portada']); ?>"
+                        alt="<?php echo htmlspecialchars($post['titulo']); ?>">
+                </div>
             <?php endif; ?>
-            <div class="blog-post__contenido">
-                <?php echo $post['contenido']; ?>
 
+            <div class="blog-post__wrapper">
+                <div class="blog-post__main">
+                    <h1 class="blog-post__titulo"><?php echo htmlspecialchars($post['titulo']); ?></h1>
+                    <p class="blog-post__fecha">
+                        <?php echo $post['fecha_publicacion'] ? date('F j, Y', strtotime($post['fecha_publicacion'])) : ''; ?>
+                    </p>
+
+                    <div class="blog-post__contenido">
+                        <?php echo $post['contenido']; ?>
+                    </div>
+
+                    <?php if ($post['categoria']): ?>
+                        <p class="blog-post__categorias">
+                            <strong>Categoría:</strong> <?php echo htmlspecialchars($post['categoria']); ?>
+                        </p>
+                    <?php endif; ?>
+                </div>
             </div>
         <?php else: ?>
-            <p>No se encontró la publicación.</p>
+            <p class="blog-post__notfound">No se encontró la publicación.</p>
         <?php endif; ?>
     </main>
 
