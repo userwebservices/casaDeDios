@@ -42,6 +42,9 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
     <meta property="og:image" content="<?php echo htmlspecialchars($ogImagen); ?>">
     <meta property="og:url" content="<?php echo $ogUrl; ?>">
     <meta property="og:type" content="article">
+    <meta property="article:published_time"
+        content="<?php echo $post['fecha_publicacion'] ? date('c', strtotime($post['fecha_publicacion'])) : ''; ?>">
+
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
