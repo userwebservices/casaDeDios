@@ -12,7 +12,7 @@ function enviarNotificacionPost($post, $conexion)
 
     // 2. Reemplazar variables
     $url = "https://casadedios.mx/blog-post.php?slug=" . urlencode($post['slug']);
-    $imagen = $post['imagen_portada'] ?: 'https://casadedios.mx/assets/img/logos/logo-default.webp';
+    $imagen = $post['imagen_portada'] ?: 'https://casadedios.mx/assets/img/logos/logo-default.png';
 
     $html = str_replace(
         ['{{categoria}}', '{{titulo}}', '{{imagen}}', '{{extracto}}', '{{url}}'],

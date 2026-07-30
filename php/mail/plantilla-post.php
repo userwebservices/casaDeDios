@@ -115,7 +115,7 @@
                                                         <tr>
                                                             <td style="width:120px;">
                                                                 <img alt="Casa de Dios"
-                                                                    src="https://casadedios.mx/assets/img/logos/logo-default.webp"
+                                                                    src="https://casadedios.mx/assets/img/logos/logo-default.png"
                                                                     style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;"
                                                                     width="120" height="auto" />
                                                             </td>
