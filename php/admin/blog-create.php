@@ -20,7 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $contenido = $_POST['contenido']; // viene del editor Quill
     $categoria_id = $_POST['categoria_id'];
     $estado = $_POST['estado'];
-    $imagen_portada = trim($_POST['imagen_portada']); // por ahora URL manual, subida de archivo la vemos después
+    $imagen_portada = trim($_POST['imagen_portada']);
+    // Si no viene con http, le agregamos el dominio automáticamente
+    if ($imagen_portada && !preg_match('/^https?:\/\//', $imagen_portada)) {
+        $imagen_portada = 'https://casadedios.mx/' . ltrim($imagen_portada, '/');
+    }
 
     $fecha_publicacion = ($estado === 'publicado') ? date('Y-m-d H:i:s') : null;
 
