@@ -22,7 +22,7 @@ if (!$post) {
 // Datos para OpenGraph (con valores por defecto si no hay post)
 $ogTitulo = $post['titulo'] ?? 'Blog | Casa de Dios';
 $ogDescripcion = $post['extracto'] ?? 'Blog de la congregación Casa de Dios';
-$ogImagen = $post['imagen_portada'] ?? 'https://casadedios.mx/assets/img/logos/logo-default.webp'; // ajusta ruta real
+$ogImagen = $post['imagen_portada'] ?? 'https://casadedios.mx/assets/img/logos/logo-default.png'; // ajusta ruta real
 $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
 ?>
 <!DOCTYPE html>
