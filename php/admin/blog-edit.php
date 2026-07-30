@@ -24,7 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $categoria_id = $_POST['categoria_id'];
     $estado = $_POST['estado'];
     $imagen_portada = trim($_POST['imagen_portada']);
-
+    // Si no viene con http, le agregamos el dominio automáticamente
+    if ($imagen_portada && !preg_match('/^https?:\/\//', $imagen_portada)) {
+        $imagen_portada = 'https://casadedios.mx/' . ltrim($imagen_portada, '/');
+    }
     // Si pasa de borrador a publicado y no tenía fecha, se la asignamos ahora
     $stmtCheck = $conexion->prepare("SELECT fecha_publicacion FROM blog_posts WHERE id = :id");
     $stmtCheck->execute(['id' => $id]);
@@ -120,7 +123,7 @@ if (!$post) {
         <select name="categoria_id">
             <?php foreach ($categorias as $cat): ?>
                 <option value="<?= $cat['id'] ?>" <?= $cat['id'] == $post['categoria_id'] ? 'selected' : '' ?>>
-                        <?= htmlspecialchars($cat['nombre']) ?>
+                    <?= htmlspecialchars($cat['nombre']) ?>
                 </option>
             <?php endforeach; ?>
         </select>
