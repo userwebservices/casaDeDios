@@ -167,12 +167,15 @@
 }
 
 /* Imágenes insertadas dentro del contenido vía Quill */
-.blog-post__contenido img {
+blog-post__contenido img {
     width: 100%;
     height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
     border-radius: 2px;
     margin: 2rem 0;
     display: block;
+    background-color: #f0f0f0; /* placeholder mientras carga */
 }
 
 .blog-post__contenido a {
