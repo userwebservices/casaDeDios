@@ -47,13 +47,14 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
 
 
     <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css?v=1.0.3">
-    <link rel="stylesheet" href="css/blog.css?v=1.0.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-</head>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/blog-post.css?v=1.0.0">
+
 
 <body>
 
@@ -126,12 +127,6 @@ $ogUrl = 'https://casadedios.mx/blog-post.php?slug=' . htmlspecialchars($slug);
                         <li class="nav-item">
                             <a class="nav-link active" href="blog.html">Blog</a>
                         </li>
-                        <div class="d-flex text-white">
-                            <a href="https://en.wikipedia.org/wiki/Besiyata_Dishmaya" target="_blank"
-                                style="color: #FFF">
-                                בס"ד
-                            </a>
-                        </div>
                     </ul>
                 </div>
             </div>
