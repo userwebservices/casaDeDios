@@ -6,13 +6,25 @@
         padding: 0;
     }
 
-    
+
+html,
 body {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
     margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Elimina scroll horizontal */
-     padding-top: 70px;
-    padding-bottom: 70px; 
+    padding-top: 70px;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+main {
+    flex: 1;
 }
 
 
@@ -241,10 +253,7 @@ body {
 
 
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    
 
     background: var(--color-white);
     border-top: 1px solid #a5a0a0;
@@ -256,6 +265,8 @@ footer {
     z-index: 1000;
 }
     
+
+
 
 footer h2 {
     font-family: var(--font-text-secondary);
