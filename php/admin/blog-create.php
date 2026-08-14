@@ -143,6 +143,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
     <script>
+        // Blot personalizado para el botón de audio
+        const BlockEmbed = Quill.import('blots/block/embed');
+
+        class AudioButtonBlot extends BlockEmbed {
+            static create(url) {
+                const node = super.create();
+                node.setAttribute('contenteditable', 'false');
+                node.setAttribute('data-audio-url', url);
+                node.innerHTML = '<i class="bi bi-play-circle-fill"></i> Escuchar';
+                return node;
+            }
+            static value(node) {
+                return node.getAttribute('data-audio-url');
+            }
+        }
+        AudioButtonBlot.blotName = 'audioButton';
+        AudioButtonBlot.tagName = 'button';
+        AudioButtonBlot.className = 'shofar-play-btn';
+        Quill.register(AudioButtonBlot);
+
         const toolbarOptions = [
             [{ header: [1, 2, 3, false] }],
             ['bold', 'italic', 'underline'],
@@ -168,13 +188,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             const url = prompt('Pega la URL del archivo .mp3 (ya subido por FTP):');
                             if (url) {
                                 const range = this.quill.getSelection(true);
-                                const html = `<button class="shofar-play-btn" onclick="new Audio('${url}').play()"><i class="bi bi-play-circle-fill"></i> Escuchar</button>`;
-                                this.quill.clipboard.dangerouslyPasteHTML(range.index, html);
+                                this.quill.insertEmbed(range.index, 'audioButton', url, Quill.sources.USER);
+                                this.quill.setSelection(range.index + 1);
                             }
                         }
                     }
                 }
             }
+        });
+
+        document.getElementById('postForm').addEventListener('submit', () => {
+            document.getElementById('contenidoInput').value = quill.root.innerHTML;
         });
     </script>
 </body>
