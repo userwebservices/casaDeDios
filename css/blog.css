@@ -211,6 +211,29 @@ blog-post__contenido img {
     color: #888;
 }
 
+/*Estilos para boton de play en blog*/
+.shofar-play-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 0.6rem 1.3rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 1rem 0;
+}
+
+.shofar-play-btn:hover {
+    background: #1a2733;
+}
+
+.shofar-play-btn i {
+    font-size: 1.3rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .blog-post__hero img {
