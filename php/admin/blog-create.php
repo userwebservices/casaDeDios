@@ -93,6 +93,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-top: 1.5rem;
             padding: 0.7rem 1.5rem;
         }
+
+
+        .ql-audio::before {
+            content: "🔊";
+        }
     </style>
 </head>
 
@@ -138,10 +143,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
     <script>
-        const quill = new Quill('#editor', { theme: 'snow' });
+        const toolbarOptions = [
+            [{ header: [1, 2, 3, false] }],
+            ['bold', 'italic', 'underline'],
+            [{ list: 'ordered' }, { list: 'bullet' }],
+            ['link', 'image', 'audio'],
+            ['clean']
+        ];
 
-        document.getElementById('postForm').addEventListener('submit', () => {
-            document.getElementById('contenidoInput').value = quill.root.innerHTML;
+        const quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: {
+                    container: toolbarOptions,
+                    handlers: {
+                        image: function () {
+                            const url = prompt('Pega la URL de la imagen (ya subida por FTP):');
+                            if (url) {
+                                const range = this.quill.getSelection(true);
+                                this.quill.insertEmbed(range.index, 'image', url);
+                            }
+                        },
+                        audio: function () {
+                            const url = prompt('Pega la URL del archivo .mp3 (ya subido por FTP):');
+                            if (url) {
+                                const range = this.quill.getSelection(true);
+                                const html = `<button class="shofar-play-btn" onclick="new Audio('${url}').play()"><i class="bi bi-play-circle-fill"></i> Escuchar</button>`;
+                                this.quill.clipboard.dangerouslyPasteHTML(range.index, html);
+                            }
+                        }
+                    }
+                }
+            }
         });
     </script>
 </body>
