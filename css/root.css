@@ -78,11 +78,14 @@ h1, h2, h3 {
 
 .titleDark {
   text-align: center;
-  color: var(--color-white);
-  font-family: var(--font-Annie);
+  color: var(--color-primary);
+  font-family: var(--font-text-primary);
   font-size: 5vw;
   text-transform: uppercase;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.3rem;
+  font-weight: var(--bold);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Mejor contraste */
+
 
 }
 .subtitleDark{
@@ -91,7 +94,7 @@ h1, h2, h3 {
   font-family: var(--font-Annie);
   font-weight: var(--light);
   font-size: 5vw;
-    letter-spacing: 0.5rem;
+  letter-spacing: 0.5rem;
 
 }   
 .contentDark{
@@ -104,8 +107,8 @@ h1, h2, h3 {
   line-height: 97%;
   padding: 1rem 0rem;
   letter-spacing: -0.2vw;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Mejor contraste */
-
+  text-shadow: 2px 2px 5px var(--color-black);
+  
 }
 
 .spanish {
