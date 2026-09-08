@@ -3,9 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Ranchers&display=swap');
 /*Font family for tue tittles of the index*/
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://use.typekit.net/apb0yow.css');
 :root {
   /* Font texts */ 
-  --font-text-primary: 'Poppins', sans-serif;
+  --font-text-primary: 'Archivo', sans-serif;
   --font-text-secondary: 'Open Sans', sans-serif;
   --font-text-accent: 'Playfair Display', serif;
   --font-text-title: 'Bebas Neue', serif;  
@@ -13,16 +14,18 @@
   --font-Ranchers: 'Ranchers';
   --font-Annie: 'Annie Use Your Telescope', cursive;
   --font-text-Anton: 'Anton', sans-serif;
+  --font-freighttext: 'freight-text-pro', serif;
+--font-freighttext-cmp: 'freighttextcmp-pro', serif;
  
   /* Font colors */
-  --color-primary: #4FB0E3;    /* Your main blue */
-  --color-black: #2D3539;      /* Pure black */
-  --color-menu: #e8e6e6;      /* For the hoover effect in menu section */
+  --color-primary: #50C1EB;     /* CIELO */
+  --color-black: #111111;      /* CARBON  */
+  --color-menu: #F4F1EA;      /* MARFIL */
   --color-secondary: #f7f7f7; 
   --color-white: #f7f7f7;  
   --color-kipurim: red; 
   --color-sukkot: #63b136; 
-  --color-purple: #6F6B85;  
+  --color-purple: #6B4A8F;  /*ARGAMAN*/
   --color-kermes: #FF008B; 
   --color-yedid: #F1841B;
   --color-yedid2: #aab0b0; 
