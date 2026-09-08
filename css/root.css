@@ -77,7 +77,7 @@ h1, h2, h3 {
 
 
 .titleDark {
-  text-align: center;
+  text-align: center; 
   color: var(--color-black);
   font-family: var(--font-text-primary);
   font-size: 5vw;
@@ -205,4 +205,12 @@ h1, h2, h3 {
 
 .estrofa-traduccion {
     font-size: 5vw;
+}
+
+.footerText {
+  color: var(--color-black);
+  font-weight: var(--bold);
+  font-size: 1rem;
+  font-family: var(--font-freighttext-cmp);
+  font-style: italic;
 }
