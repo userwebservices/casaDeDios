@@ -201,13 +201,13 @@ min-width: 320px;
     --bs-btn-color: var(--color-primary); /*Color del texto en estado norma*/
     --bs-btn-border-color: var(--color-primary);
     
-    --bs-btn-hover-bg: var(--color-primary);
-    --bs-btn-hover-color: var(--color-primary);/*Color del texto cuando pasas el mouse*/
-    --bs-btn-hover-border-color: var(--color-black);
+    --bs-btn-hover-bg: var(--color-menu);
+    --bs-btn-hover-color: var(--color-black);/*Color del texto cuando pasas el mouse*/
+    --bs-btn-hover-border-color: var(--color-menu);
 
     --bs-btn-active-color:var(--color-black);
     --bs-btn-active-bg: var(--color-primary);
     --bs-btn-active-border-color: var(--color-primary);
 
 }
-
+ 
