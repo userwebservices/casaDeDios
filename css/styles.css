@@ -206,11 +206,13 @@ min-width: 320px;
 .btn-outline-info {
     --bs-info: var(--color-primary);
     --bs-btn-color: var(--color-primary);
-    --bs-btn-hover-color: var(--color-primary);
-    --bs-btn-active-color:var(--color-primary);
+    --bs-btn-hover-color: var(--color-menu);
+    --bs-btn-active-color:var(--color-menu);
     --bs-btn-border-color: var(--color-primary);
     --bs-btn-hover-bg: var(--color-primary);
     --bs-btn-hover-border-color: var(--color-primary);
     --bs-btn-active-bg: var(--color-primary);
     --bs-btn-active-border-color: var(--color-primary);
+
 }
+
