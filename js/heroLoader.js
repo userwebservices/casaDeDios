@@ -1,3 +1,4 @@
+//Manipulo la respuesta del server, y presnta los datos en casadedios.mx/cantos.html
 export class HeroLoader {
     constructor() {
         this.API_BASE = 'php/apiAdmin.php';
@@ -38,8 +39,17 @@ export class HeroLoader {
         }
         
         // Subtítulos opcionales
-        if (hero.subtitulo_h2) html += `<h2>${hero.subtitulo_h2}</h2>`;
+        
+        
+        //örden h2 arriba -> h1 abajo
+        //if (hero.subtitulo_h2) html += `<h2>${hero.subtitulo_h2}</h2>`;
+        //html += `<h1>${hero.titulo}</h1>`;
+
+        //örden h1 arriba -> h2 abajo
         html += `<h1>${hero.titulo}</h1>`;
+        if (hero.subtitulo_h2) html += `<h2>${hero.subtitulo_h2}</h2>`;
+
+
         if (hero.subtitulo_h4) html += `<h4>${hero.subtitulo_h4}</h4>`;
         
         // Referencia con ícono
