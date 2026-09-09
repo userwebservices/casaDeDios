@@ -202,3 +202,16 @@ footer a:hover {
   font-style: italic;
 }
 
+
+/*Styles for the button in the aim page*/
+.custom-btn {
+    background-color: var(--color-primary);  /* Tu color personalizado */
+    border-color: var(--color-primary);
+    color: var(--color-menu);  /* Color del texto */
+}
+
+.custom-btn:hover {
+    background-color: var(--color-black);  /* Color al pasar el mouse */
+    border-color: var(--color-primary);
+    color: white;
+}
