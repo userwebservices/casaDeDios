@@ -195,7 +195,7 @@ footer a:hover {
 
 
 .verseText {
-  color: var(--light-color);
+  color: var(--light-color); 
   font-weight: var(--bold);
   font-size: 1rem;
   font-family: var(--font-freighttext-cmp);
@@ -205,13 +205,13 @@ footer a:hover {
 
 /*Styles for the button in the aim page*/
 .custom-btn {
-    background-color: var(--color-primary);  /* Tu color personalizado */
-    border-color: var(--color-primary);
-    color: var(--color-menu);  /* Color del texto */
+    background-color: var(--primary-color);  /* Tu color personalizado */
+    border-color: var(--primary-color);
+    color: var(--light-color);  /* Color del texto */
 }
 
 .custom-btn:hover {
-    background-color: var(--color-black);  /* Color al pasar el mouse */
-    border-color: var(--color-primary);
-    color: white;
+    background-color: var(--dark-color);  /* Color al pasar el mouse */
+    border-color: var(--dark-color);
+    color: var(--light-color);
 }
