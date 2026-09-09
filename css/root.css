@@ -6,7 +6,7 @@
 @import url('https://use.typekit.net/apb0yow.css');
 :root {
   /* Font texts */ 
-  --font-text-primary: 'Archivo', sans-serif;
+  --font-text-primary: 'Archivo', sans-serif; 
   --font-text-secondary: 'Open Sans', sans-serif;
   --font-text-accent: 'Playfair Display', serif;
   --font-text-title: 'Bebas Neue', serif;  

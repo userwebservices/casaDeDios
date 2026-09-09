@@ -2,9 +2,11 @@
 
 /* Variables */
 :root {
-    --primary-color: #007bff;
-    --dark-color: #212529;
-    --light-color: #f8f9fa;
+    --primary-color: #50C1EB;
+    --dark-color: #111111;
+    --light-color: #F4F1EA;
+    --font-freighttext-cmp: 'freighttextcmp-pro', serif;
+
 }
 
 
@@ -192,5 +194,11 @@ footer a:hover {
 }
 
 
-
+.verseText {
+  color: var(--light-color);
+  font-weight: var(--bold);
+  font-size: 1rem;
+  font-family: var(--font-freighttext-cmp);
+  font-style: italic;
+}
 
