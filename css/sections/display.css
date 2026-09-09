@@ -161,13 +161,13 @@ overflow-y: auto; /* Scroll interno para contenido largo */
         font-weight: var(--bold);
         font-size: 5vw;
         /*letter-spacing: 0.1rem;*/
-        line-height: 120%; 
+        line-height: 95%; 
         /*text-shadow: 0 3px 3px rgba(0,0,0,.5),
                     0 0 2px rgba(0,0,0,.2);*/
         padding-bottom: 0.5rem;
         color: var(--color-black);/* Si el fondo es oscuro */
         width: 42rem;
-        text-transform: uppercase;
+        /*text-transform: uppercase;*/
         /*
         background: rgba(0,0,0,.35);
         backdrop-filter: blur(3px);
@@ -186,8 +186,9 @@ overflow-y: auto; /* Scroll interno para contenido largo */
         line-height: 99%;
         /*text-shadow: 2px 2px 5px rgba(25, 24, 24, 0.3); */
         padding-bottom: 0.5rem;
-        color: var(--color-primary);/* Si el fondo es oscuro */
+        color: var(--color-black);/* Si el fondo es oscuro */
         width: 40rem;
+        font-style: italic;
 
     }
 
@@ -268,7 +269,7 @@ overflow-y: auto; /* Scroll interno para contenido largo */
         
       font-family: var(--font-text-secondary) ;
         font-size: 1rem;
-        color: var(--color-white);
+        color: var(--color-primary);
         font-weight: var(--medium);
         letter-spacing: 0.1rem;
         line-height: 90%;
