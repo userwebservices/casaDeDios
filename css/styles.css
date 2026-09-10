@@ -211,3 +211,26 @@ min-width: 320px;
 
 }
  
+
+/*Button de referencia estética para el hero de cantos.html*/
+.overlaidInsideVerse .verseBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    border-radius: 999px;
+    padding: 6px 16px;
+    background: var(--color-primary);
+    color: var(--color-menu);
+    cursor: default;
+    pointer-events: none;
+}
+
+.overlaidInsideVerse .verseBadge h5 {
+    margin: 0;
+    color: var(--color-menu);
+}
+
+.overlaidInsideVerse .verseBadge i {
+    color: var(--color-menu);
+}

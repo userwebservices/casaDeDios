@@ -78,7 +78,7 @@ h1, h2, h3 {
 
 .titleDark {
   text-align: center; 
-  color: var(--color-black);
+  color: var(--color-menu);
   font-family: var(--font-text-primary);
   font-size: 5vw;
   text-transform: uppercase;
@@ -98,13 +98,13 @@ h1, h2, h3 {
 }   
 .contentDark{
   font-family: var(--font-text-primary); /* Usando la variable que cree el 3april25 */
-  font-weight: var(--medium);
+  font-weight: var(--semi-bold);
   font-size: 6vw;
   text-align: center;
-  color: var(--color-white);
+  color: var(--color-menu);
   letter-spacing: 0.3rem;
-  line-height: 97%;
-  padding: 1rem 0rem;
+  line-height: 95%;
+  padding: 0.5rem 0rem;
   letter-spacing: -0.2vw;
   text-shadow: 2px 2px 5px var(--color-black);
   
@@ -204,6 +204,20 @@ h1, h2, h3 {
 
 .estrofa-traduccion {
     font-size: 5vw;
+} 
+
+/*Estilos personalziados para las letras de la categoria alabanza 10sep26*/
+.estrofa-alabanza {
+  font-family: var(--font-text-primary); /* Usando la variable que cree el 3april25 */
+  font-weight: var(--semi-bold);
+  font-size: 6vw;
+  text-align: center;
+  color: var(--color-black);
+  letter-spacing: 0.3rem;
+  line-height: 95%;
+  padding: 0.5rem 0rem;
+  letter-spacing: -0.2vw;
+  text-shadow: none; /* ← AGREGAR ESTA LÍNEA */
 }
 
 .footerText {

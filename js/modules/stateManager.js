@@ -59,6 +59,8 @@ export class __AppState__ {
 function formatearLetra(letra, slug) {
     if (!letra) return '';
     const esHebreo = slug === 'hebreos';
+    const esAlabanza = slug === 'alabanza'; // ← FALTABA ESTA LÍNEA
+
     return letra.split(/\r?\n/).map(linea => {
         if (esHebreo && linea.startsWith('#')) {
             const texto = linea.slice(1).trim();
@@ -67,6 +69,13 @@ function formatearLetra(letra, slug) {
         if (esHebreo) {
             return `<span class="estrofa-traduccion">${linea}</span><br>`;
         }
+
+         // NUEVO: Alabanza - diseño personalizado de las letras en alabanza
+        if (esAlabanza && linea.startsWith('#')) {
+            const texto = linea.slice(1).trim();
+            return `<span class="estrofa-alabanza">${texto}</span><br>`;
+        }
+ 
         return `${linea}<br>`;
     }).join('');
 }
