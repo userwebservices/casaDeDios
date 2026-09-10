@@ -36,6 +36,17 @@ export class MenuLoader {
 pintarMenu(data) {
     const menuContainer = document.getElementById('menuContainer');
     menuContainer.innerHTML = '';
+
+    // Botón Home al inicio
+    const homeButton = document.createElement('button');
+    homeButton.className = 'btn btn-outline-info rounded-pill';
+    homeButton.innerHTML = '<i class="fas fa-home"></i>';
+    homeButton.addEventListener('click', () => {
+        location.href = location.pathname;
+    });
+    menuContainer.appendChild(homeButton);
+
+    // Resto de categorías 
     data.forEach(({ cat, cantos }) => {
         const menuItem = this.crearCategoriaButton(cat, cantos);
         menuContainer.appendChild(menuItem);

@@ -55,10 +55,12 @@ export class HeroLoader {
         // Referencia con ícono
         if (hero.referencia_h5) {
             html += '<div class="overlaidInsideVerse">';
+            html += '<button class="verseBadge" type="button">';
             if (hero.icono_referencia) {
                 html += `<i class="${hero.icono_referencia}"></i> `;
             }
             html += `<h5>${hero.referencia_h5}</h5>`;
+            html += '</button>';
             html += '</div>';
         }
         
