@@ -23,7 +23,7 @@
   --color-menu: #F4F1EA;      /* MARFIL */
   --color-secondary: #f7f7f7; 
   --color-white: #f7f7f7;  
-  --color-kipurim: red; 
+  --color-kipurim: red;  
   --color-sukkot: #63b136; 
   --color-purple: #6B4A8F;  /*ARGAMAN*/
   --color-kermes: #FF008B; 
@@ -211,7 +211,7 @@ h1, h2, h3 {
   font-family: var(--font-text-primary); /* Usando la variable que cree el 3april25 */
   font-weight: var(--semi-bold);
   font-size: 6vw;
-  text-align: center;
+  text-align: center; 
   color: var(--color-black);
   letter-spacing: 0.3rem;
   line-height: 95%;
