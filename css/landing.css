@@ -4,7 +4,7 @@
 :root {
     --primary-color: #50C1EB;
     --dark-color: #111111;
-    --light-color: #F4F1EA;
+    --light-color: #F4F1EA; 
     --font-freighttext-cmp: 'freighttextcmp-pro', serif;
 
 }
@@ -205,12 +205,12 @@ footer a:hover {
 
 /*Styles for the button in the aim page*/
 .custom-btn {
-    background-color: var(--primary-color);  /* Tu color personalizado */
-    border-color: var(--primary-color);
+    background-color: var(--light-color);  /* Tu color personalizado */
+    border-color: var(--light-color);
     color: var(--dark-color);  /* Color del texto */
 }
 
-.custom-btn:hover {
+.custom-btn:hover { 
     background-color: var(--dark-color);  /* Color al pasar el mouse */
     border-color: var(--dark-color);
     color: var(--light-color);
