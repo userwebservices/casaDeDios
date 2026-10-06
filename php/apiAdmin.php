@@ -3,7 +3,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
@@ -19,6 +18,22 @@ require_once 'db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit(0);
 }
+
+
+function requireAdmin()
+{
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (empty($_SESSION['admin_logged_in'])) {
+        http_response_code(401);
+        echo json_encode(['error' => 'No autorizado']);
+        exit;
+    }
+}
+
+
+
 
 try {
     $db = $conexion;
@@ -42,6 +57,7 @@ try {
     echo json_encode(['error' => $e->getMessage()]);
 }
 
+// Función para manejar la petición fetch que viene de heroLoader.js
 function handleGet($db, $action)
 {
     switch ($action) {
@@ -79,12 +95,12 @@ function handleGet($db, $action)
             }
 
             $stmt = $db->prepare("
-                SELECT c.id, c.titulo, c.numero, cat.slug as categoria
-                FROM cantos c
-                    JOIN categorias cat ON c.categoria_id = cat.id
-                    WHERE MATCH(c.titulo) AGAINST(:q1 IN BOOLEAN MODE)
-                LIMIT 10
-                ");
+                    SELECT c.id, c.titulo, c.numero, cat.slug as categoria
+                    FROM cantos c
+                        JOIN categorias cat ON c.categoria_id = cat.id
+                        WHERE MATCH(c.titulo) AGAINST(:q1 IN BOOLEAN MODE)
+                    LIMIT 10
+                    ");
 
             $stmt->execute([
                 ':q1' => $q . '*' // 🔥 clave para predictivo
@@ -96,11 +112,11 @@ function handleGet($db, $action)
         case 'getCantosPorCategoria':
             $slug = $_GET['slug'] ?? '';
             $stmt = $db->prepare("
-                SELECT c.* FROM cantos c 
-                JOIN categorias cat ON c.categoria_id = cat.id 
-                WHERE cat.slug = ? AND c.activo = 1 
-                ORDER BY c.numero
-             ");
+                    SELECT c.* FROM cantos c 
+                    JOIN categorias cat ON c.categoria_id = cat.id 
+                    WHERE cat.slug = ? AND c.activo = 1 
+                    ORDER BY c.numero
+                ");
             $stmt->execute([$slug]);
             echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
             break;
@@ -146,6 +162,8 @@ function handleGet($db, $action)
 
 function handlePost($db, $action)
 {
+
+    requireAdmin();
     global $data;
 
     switch ($action) {
@@ -201,9 +219,6 @@ function handlePost($db, $action)
             echo json_encode(['error' => 'Acción no válida']);
 
 
-
-
-
         //Código agregado 6mar26, para añadir imagenes en la sección principal de bienvenida en la página
 
         case 'createHeroConfig':
@@ -247,17 +262,15 @@ function handlePost($db, $action)
             $stmt->execute([$data['id']]);
             echo json_encode(['success' => true]);
             break;
-
-
         // FIN Código agregado 6mar26, para añadir imagenes en la sección principal de bienvenida en la página
-
-
 
     }
 }
 
 function handleDelete($db, $action)
 {
+
+    requireAdmin();
     switch ($action) {
         case 'delete':
             $id = $_GET['id'] ?? 0;
@@ -276,10 +289,6 @@ function handleDelete($db, $action)
         default:
             echo json_encode(['error' => 'Acción no válida']);
 
-
-
-
-
         //Código agregado 6mar26, para añadir imagenes en la sección principal de bienvenida en la página
         case 'deleteHeroConfig':
             $id = $_GET['id'] ?? 0;
@@ -289,13 +298,11 @@ function handleDelete($db, $action)
             break;
         //FIN Código agregado 6mar26, para añadir imagenes en la sección principal de bienvenida en la página
 
-
         case 'getActiveHeroConfig':
             $stmt = $db->query("SELECT * FROM hero_config WHERE activa = 1 LIMIT 1");
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
             echo json_encode($result ?: null);
             break;
-
 
     }
 }
