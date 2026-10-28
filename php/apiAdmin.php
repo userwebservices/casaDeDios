@@ -222,23 +222,7 @@ function handlePost($db, $action)
         //Código agregado 6mar26, para añadir imagenes en la sección principal de bienvenida en la página
 
         case 'createHeroConfig':
-            $stmt = $db->prepare("INSERT INTO hero_config (nombre, titulo, subtitulo_h2, subtitulo_h4, referencia_h5, icono_titulo, icono_referencia, imagen_bg, activa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->execute([
-                $data['nombre'],
-                $data['titulo'],
-                $data['subtitulo_h2'] ?? null,
-                $data['subtitulo_h4'] ?? null,
-                $data['referencia_h5'] ?? null,
-                $data['icono_titulo'] ?? null,
-                $data['icono_referencia'] ?? null,
-                $data['imagen_bg'],
-                $data['activa'] ?? 0
-            ]);
-            echo json_encode(['success' => true, 'id' => $db->lastInsertId()]);
-            break;
-
-        case 'updateHeroConfig':
-            $stmt = $db->prepare("UPDATE hero_config SET nombre = ?, titulo = ?, subtitulo_h2 = ?, subtitulo_h4 = ?, referencia_h5 = ?, icono_titulo = ?, icono_referencia = ?, imagen_bg = ?, activa = ? WHERE id = ?");
+            $stmt = $db->prepare("INSERT INTO hero_config (nombre, titulo, subtitulo_h2, subtitulo_h4, referencia_h5, icono_titulo, icono_referencia, imagen_bg, activa, bloques) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->execute([
                 $data['nombre'],
                 $data['titulo'],
@@ -249,6 +233,24 @@ function handlePost($db, $action)
                 $data['icono_referencia'] ?? null,
                 $data['imagen_bg'],
                 $data['activa'] ?? 0,
+                $data['bloques'] ?? null
+            ]);
+            echo json_encode(['success' => true, 'id' => $db->lastInsertId()]);
+            break;
+
+        case 'updateHeroConfig':
+            $stmt = $db->prepare("UPDATE hero_config SET nombre = ?, titulo = ?, subtitulo_h2 = ?, subtitulo_h4 = ?, referencia_h5 = ?, icono_titulo = ?, icono_referencia = ?, imagen_bg = ?, activa = ?, bloques = ? WHERE id = ?");
+            $stmt->execute([
+                $data['nombre'],
+                $data['titulo'],
+                $data['subtitulo_h2'] ?? null,
+                $data['subtitulo_h4'] ?? null,
+                $data['referencia_h5'] ?? null,
+                $data['icono_titulo'] ?? null,
+                $data['icono_referencia'] ?? null,
+                $data['imagen_bg'],
+                $data['activa'] ?? 0,
+                $data['bloques'] ?? null,
                 $data['id']
             ]);
             echo json_encode(['success' => true]);

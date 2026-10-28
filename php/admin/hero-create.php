@@ -35,6 +35,15 @@ if (!isset($_SESSION['admin_logged_in'])) {
             </div>
 
             <div class="col-12">
+                <label class="form-label">Bloques (opcional, orden libre)</label>
+                <textarea name="bloques" class="form-control" rows="6"
+                    placeholder="h2: Bienvenidos&#10;h1: Casa de Dios&#10;h2: Shabat Shalom&#10;h1: Todos a la mesa"></textarea>
+                <small class="text-muted">Una línea por bloque, formato <code>h1: texto</code>. Si lo llenas, se ignoran
+                    los campos H1/H2/H4 de arriba (el Título H1 sigue siendo obligatorio porque se muestra en la
+                    lista).</small>
+            </div>
+
+            <div class="col-12">
                 <label class="form-label">Título (H1)</label>
                 <textarea name="titulo" class="form-control" rows="2" required></textarea>
             </div>
