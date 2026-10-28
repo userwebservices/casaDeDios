@@ -75,7 +75,7 @@ overflow-y: auto; /* Scroll interno para contenido largo */
     width: 100%;
     min-height: 100vh;
     height: 100%; /* ← Esto solo cubre el viewport, NO el contenido largo */
-    background-color: rgba(0, 0, 0, 0.2); /* A F E C T A  E L  O V E R L A Y  D I N A M I C O */
+    background-color: rgba(0, 0, 0, 0.05); /* A F E C T A  E L  O V E R L A Y  D I N A M I C O */
     z-index: 1; /* TENIA 20 pero lo cambie a 1, Mayor que el estático para que esté encima */
     pointer-events: none; /*agregada */
 }
@@ -161,11 +161,11 @@ overflow-y: auto; /* Scroll interno para contenido largo */
         font-weight: var(--bold);
         font-size: 5rem;
         /*letter-spacing: 0.1rem;*/
-        line-height: 95%; 
-        text-shadow: 0 3px 3px rgba(0,0,0,.5),
-                    0 0 2px rgba(0,0,0,.2);
+        line-height: 90%; 
+        /*text-shadow: 0 3px 3px rgba(0,0,0,.5),
+                    0 0 2px rgba(0,0,0,.2);*/
         padding-bottom: 0.5rem; 
-        color: var(--color-menu);/* Si el fondo es oscuro */
+        color: var(--color-black);/* Si el fondo es oscuro */
         width: 47rem;
         /*text-transform: uppercase;*/
         /*
@@ -175,6 +175,33 @@ overflow-y: auto; /* Scroll interno para contenido largo */
         border-radius:0.5rem;
         */
     }  
+
+    /*Classes para los titulos alternados h1, h2, h1, etc*/
+    .overlaidTitle h1.ligero {
+        font-family: var(--font-text-primary); 
+        font-weight: var(--light);
+        font-size: 4.5rem;
+        letter-spacing: -0.2rem;
+        line-height: 90%; 
+        /*text-shadow: 0 3px 3px rgba(0,0,0,.5),
+                    0 0 2px rgba(0,0,0,.2);*/
+        padding-bottom: 0.5rem; 
+        color: var(--color-black);/* Si el fondo es oscuro */
+        width: 47rem;
+    }
+
+    .overlaidTitle h1.fuerte {
+        font-family: var(--font-text-primary); 
+        font-weight: var(--bold);
+        font-size: 5rem;
+        letter-spacing: -0.2rem;
+        line-height: 90%; 
+        /*text-shadow: 0 3px 3px rgba(0,0,0,.5),
+                    0 0 2px rgba(0,0,0,.2);*/
+        padding-bottom: 0.5rem; 
+        color: var(--color-black);/* Si el fondo es oscuro */
+        width: 47rem;
+    }
 
     
  
@@ -186,7 +213,7 @@ overflow-y: auto; /* Scroll interno para contenido largo */
         line-height: 99%;
         text-shadow: 2px 2px 5px rgba(25, 24, 24, 0.3); 
         padding-bottom: 0.5rem;
-        color: var(--color-menu);/* Si el fondo es oscuro */
+        color: var(--color-black);/* Si el fondo es oscuro */
         width: 40rem;
         font-style: italic;
 
@@ -278,6 +305,7 @@ overflow-y: auto; /* Scroll interno para contenido largo */
     }
 
    
+    
 
     .sukkot {
         font-size: 5rem;
@@ -471,6 +499,7 @@ overflow-y: auto; /* Scroll interno para contenido largo */
     #contentContainer {
         overflow: visible !important;
         max-height: none !important;
+        padding-top: 5rem !important;   /* ← agregar */
     }
     
     /* Imagen de fondo ajustada para móvil */
@@ -483,7 +512,7 @@ overflow-y: auto; /* Scroll interno para contenido largo */
     
     /* Overlay para mejorar legibilidad del texto */
     .display-overlay-static {
-        background: rgba(0, 0, 0, 0.3) !important;
+        background: rgba(0, 0, 0, 0.01) !important;
     }
     
     /* SOBRESCRIBIR posicionamiento de titleAimCover para mobile */
@@ -512,7 +541,7 @@ overflow-y: auto; /* Scroll interno para contenido largo */
     
     /* Títulos adaptados */
     .overlaidTitle h1 {
-        font-size: 1.8rem !important;
+        font-size: 3rem !important;
         word-wrap: break-word !important;
         max-width: 100% !important;
         width: 100% !important;  /* Ancho completo, no 42rem */
@@ -531,11 +560,14 @@ overflow-y: auto; /* Scroll interno para contenido largo */
     }
     
     .contentDark {
-        font-size: 1.5rem !important;
-        font-weight: 700 !important;
-        line-height: 1.1 !important;
-        letter-spacing: 0.1rem;
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7) !important;
+        font-family: var(--font-text-primary);
+        font-size: 2.5rem !important;
+        font-weight: var(--regular) !important;
+        line-height: 0.95 !important;
+        letter-spacing: 0.01rem;
+        color: var(--color-black);/* Si el fondo es oscuro */
+        
+        text-shadow: 0.1px 0.1px 0.1px rgba(0, 0, 0, 0.01) !important;
     }
     
     .subtitleDark {
